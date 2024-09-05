@@ -10,6 +10,11 @@
     <style>
         body {
             font-size: 40px;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            max-width: 100vw;
+            overflow-x: hidden;
         }
         .timer-size {
             font-size: 40px;
@@ -18,12 +23,12 @@
             display: none;
         }
         .definition {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         #timer {
             font-size: 40px;
             margin-bottom: 20px;
-            height: 150px;
+            height: auto;
         }
         #timerInput {
             width: 200px;
@@ -33,7 +38,10 @@
             font-optical-sizing: auto;
             font-weight: 400;
             font-style: normal;
-            }
+        }
+        .word {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body class="suse-bailey">
@@ -102,7 +110,7 @@
                 div.innerHTML = `
                     <p>${item.definition}</p>
                     <button onclick="revealWord(${index})">Show Word</button>
-                    <span id="word${index}" class="hidden">${item.word}</span>
+                    <span id="word${index}" class="hidden word">${item.word}</span>
                 `;
                 definitionsContainer.appendChild(div);
             });
