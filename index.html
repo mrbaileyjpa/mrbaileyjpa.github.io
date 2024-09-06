@@ -17,6 +17,9 @@
             font-family: "SUSE", sans-serif;
             font-optical-sizing: auto;
             font-style: normal;
+            font-size: 18px;
+            background-color: #021526;
+            color: #E2E2B6;
         }
         #quiz {
             display: flex;
@@ -26,13 +29,18 @@
         #timer {
             font-size: 36px;
             margin-bottom: 20px;
+            color: #6EACDA;
         }
         #setup {
             margin-bottom: 20px;
         }
         input {
             width: 80px;
-            font-size: 36px;
+            font-size: 24px;
+            background-color: #03346E;
+            color: #E2E2B6;
+            border: none;
+            padding: 5px;
         }
         .size-36 {
             font-size: 36px;
@@ -43,13 +51,18 @@
         .definition {
             display: flex;
             margin-bottom: 20px;
-            border-bottom: 2px solid #ccc;
+            border-bottom: 2px solid #03346E;
             padding-bottom: 20px;
+            height: 150px; /* Set a fixed height */
+            overflow: hidden; /* Hide overflow */
         }
         .phrase {
             width: 80%;
-            font-size: 36px;
+            font-size: 24px;
             padding-right: 20px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
         }
         .definition-content {
             width: 20%;
@@ -61,13 +74,14 @@
             font-size: 36px;
             margin-bottom: 10px;
         }
-        button {
+        button, button.show-word-btn {
             font-size: 20px;
-            padding: 5px;
-            margin-top: 5px;
-        }
-        input {
-            width: 80px;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #03346E;
+            color: #E2E2B6;
+            border: none;
+            cursor: pointer;
         }
         .word {
             font-weight: bold;
@@ -95,6 +109,7 @@
             }
             .definition {
                 flex-direction: column;
+                height: 200px;
             }
             .phrase {
                 width: 100%;
@@ -108,7 +123,7 @@
             .definition-text {
                 font-size: 16px;
             }
-            button {
+            button, button.show-word-btn {
                 font-size: 16px;
                 padding: 8px;
             }
@@ -210,6 +225,10 @@
                     </div>
                 `;
                 definitionsContainer.appendChild(div);
+                
+                // Adjust font size for the phrase
+                const phraseElement = div.querySelector('.phrase');
+                adjustFontSize(phraseElement);
             });
         }
 
@@ -235,6 +254,16 @@
                     document.body.style.backgroundColor = '#89c7be';
                 }
             }, 1000);
+        }
+
+        function adjustFontSize(element) {
+            const maxHeight = parseInt(window.getComputedStyle(element.parentElement).height);
+            let fontSize = parseInt(window.getComputedStyle(element).fontSize);
+            
+            while (element.scrollHeight > maxHeight && fontSize > 12) {
+                fontSize--;
+                element.style.fontSize = `${fontSize}px`;
+            }
         }
     </script>
 </body>
