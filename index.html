@@ -149,6 +149,16 @@
                 padding: 8px;
             }
         }
+
+        #time-up-image {
+            position: fixed;
+            top: -100px; /* Start off-screen */
+            left: 50%;
+            transform: translateX(-50%);
+            transition: top 0.5s ease-out;
+            z-index: 1000;
+            display: none;
+        }
     </style>
 </head>
 <body class="suse-bailey">
@@ -159,6 +169,7 @@
     </div>
     <div id="quiz" class="hidden">
         <div id="timer" class="suse-bailey timer-size"></div>
+        <img id="time-up-image" src="time-up.webp" alt="Time's Up">
         <div id="definitions"></div>
     </div>
 
@@ -238,21 +249,26 @@
         }
 
         function startTimer(duration) {
-            console.log("Starting timer with duration:", duration);
             let timer = duration;
             const timerDisplay = document.getElementById('timer');
-            console.log("Timer display element:", timerDisplay);
-            
-            // Immediately set the initial timer value
-            timerDisplay.textContent = timer;
+            const timeUpImage = document.getElementById('time-up-image');
             
             timerInterval = setInterval(() => {
                 timerDisplay.textContent = timer;
                 if (--timer < 0) {
                     clearInterval(timerInterval);
-                    // Removed the background color change
+                    showTimeUpImage(timeUpImage, timerDisplay);
                 }
             }, 1000);
+        }
+
+        function showTimeUpImage(image, timer) {
+            image.style.display = 'block';
+            setTimeout(() => {
+                image.style.top = `${timer.offsetTop}px`;
+                image.style.left = `${timer.offsetLeft - image.width - 20}px`; // 20px gap
+                image.style.transform = 'none'; // Remove horizontal centering
+            }, 50); // Small delay to ensure display change has taken effect
         }
 
         function adjustFontSize(element) {
