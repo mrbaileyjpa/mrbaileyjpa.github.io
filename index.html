@@ -17,7 +17,6 @@
             font-family: "SUSE", sans-serif;
             font-optical-sizing: auto;
             font-style: normal;
-            font-size: 36px;
         }
         #quiz {
             display: flex;
@@ -64,8 +63,8 @@
         }
         button {
             font-size: 20px;
-            padding: 10px;
-            margin-top: 10px;
+            padding: 5px;
+            margin-top: 5px;
         }
         input {
             width: 80px;
@@ -116,6 +115,22 @@
             input {
                 width: 60px;
                 font-size: 20px;
+            }
+        }
+
+        button.show-word-btn {
+            font-size: 20px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        /* Responsive design for smartphones */
+        @media (max-width: 768px) {
+            /* ... existing mobile styles ... */
+
+            button.show-word-btn {
+                font-size: 16px;
+                padding: 8px;
             }
         }
     </style>
@@ -191,7 +206,7 @@
                         <div class="definition-text">
                             <span id="word${index}" class="hidden word">${item.word}</span>
                         </div>
-                        <button onclick="revealWord(${index})">Show Word</button>
+                        <button onclick="revealWord(${index})" class="show-word-btn">Show Word</button>
                     </div>
                 `;
                 definitionsContainer.appendChild(div);
