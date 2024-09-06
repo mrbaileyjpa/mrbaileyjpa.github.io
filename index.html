@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSP Words Quiz</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -36,7 +33,7 @@
         }
         input {
             width: 80px;
-            font-size: 24px;
+            font-size: 36px;
             background-color: #03346E;
             color: #E2E2B6;
             border: none;
@@ -46,7 +43,7 @@
             font-size: 36px;
         }
         .timer-size {
-            font-size: 24px;
+            font-size: 36px;
         }
         .definition {
             display: flex;
@@ -257,18 +254,21 @@
                 timerDisplay.textContent = timer;
                 if (--timer < 0) {
                     clearInterval(timerInterval);
-                    showTimeUpImage(timeUpImage, timerDisplay);
+                    showTimeUpImage(timeUpImage);
                 }
             }, 1000);
         }
 
-        function showTimeUpImage(image, timer) {
+        function showTimeUpImage(image) {
+            const timer = document.getElementById('timer');
+            const timerRect = timer.getBoundingClientRect();
+            
             image.style.display = 'block';
             setTimeout(() => {
-                image.style.top = `${timer.offsetTop}px`;
-                image.style.left = `${timer.offsetLeft - image.width - 20}px`; // 20px gap
-                image.style.transform = 'none'; // Remove horizontal centering
-            }, 50); // Small delay to ensure display change has taken effect
+                image.style.top = `${timerRect.top}px`;
+                image.style.left = `${timerRect.left - image.width - 20}px`; // 20px gap
+                image.style.transform = 'none';
+            }, 50);
         }
 
         function adjustFontSize(element) {
