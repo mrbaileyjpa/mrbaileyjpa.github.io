@@ -37,7 +37,7 @@ Code,The name for the instructions you write to a computer in a program.,x
 Programming Language,"Any set of rules that converts strings, or graphical program elements to various kinds of machine code output.",x
 Variable,A symbol or container that holds a value.,x
 Initialize a Variable,Giving a variable an initial value.,x
-Concatenation,Adding two strings together using the “+” operator.,x
+Concatenation,Adding two strings together using the + operator.,x
 input(),A function that prints a prompt and retrieves text from the user.,x
 Type Conversion,"The process of converting the value of one data type (integer, string, float, etc.) to another data type.",x
 Floating Point Numbers,"Real numbers that are written with a decimal point, dividing the integer and fractional parts.",x
@@ -83,7 +83,7 @@ Number System,"Defines which digits we can use, and what value each position (pl
 Number Base,"Defines how many digits are in the number system, and the base of the exponent for each place value in a number.",
 Decimal Number System,"The number system we use in out everyday lives. It has 10 digits, 0-9.",
 Binary Number System,"Number system that has 2 digits, 0 and 1. This is how computers represent numbers at the base level.",
-Bit,“binary digit”. A single digit in a binary number. Can either be 0 or 1.,
+Bit,Short for binary digit. A single digit in a binary number. Can either be 0 or 1.,
 ASCII,The standard protocol for encoding text information as bits.,
 Pixel Image,An image can be represented as a grid of values. Each value encodes the color at that position in the image.,
 Pixel,"Images are made up of these, which are essentially a grid of values. Each value encodes the color at that position in the image.",

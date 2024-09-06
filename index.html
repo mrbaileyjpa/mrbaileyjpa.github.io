@@ -306,7 +306,7 @@
             quizElement.addEventListener('submit', (e) => e.preventDefault());
         });
 
-        function adjustFontSize(element) {
+        function adjustFontSize(element) { 
             const maxHeight = parseInt(window.getComputedStyle(element.parentElement).height);
             let fontSize = parseInt(window.getComputedStyle(element).fontSize);
             
