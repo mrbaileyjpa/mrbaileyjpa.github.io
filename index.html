@@ -156,6 +156,10 @@
             z-index: 1000;
             display: none;
         }
+
+        #time-up-image.visible {
+            top: 20px; /* Final position */
+        }
     </style>
 </head>
 <body class="suse-bailey">
@@ -260,16 +264,25 @@
         }
 
         function showTimeUpImage(image) {
-            const timer = document.getElementById('timer');
-            const timerRect = timer.getBoundingClientRect();
-            
+            console.log("Showing time up image");
             image.style.display = 'block';
+            
+            // Force a reflow
+            image.offsetHeight;
+            
+            image.classList.add('visible');
+            
+            // Log the image's position after a short delay
             setTimeout(() => {
-                image.style.top = `${timerRect.top}px`;
-                image.style.left = `${timerRect.left - image.width - 20}px`; // 20px gap
-                image.style.transform = 'none';
-            }, 50);
+                console.log("Image position:", image.getBoundingClientRect());
+            }, 600);
         }
+
+        // Prevent any default behaviors that might interfere
+        document.addEventListener('DOMContentLoaded', () => {
+            const quizElement = document.getElementById('quiz');
+            quizElement.addEventListener('submit', (e) => e.preventDefault());
+        });
 
         function adjustFontSize(element) {
             const maxHeight = parseInt(window.getComputedStyle(element.parentElement).height);
