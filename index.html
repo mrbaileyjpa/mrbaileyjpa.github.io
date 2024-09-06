@@ -121,7 +121,7 @@
                 width: 100%;
             }
             .definition-text {
-                font-size: 16px;
+                font-size: 24px;
             }
             button, button.show-word-btn {
                 font-size: 16px;
@@ -246,12 +246,10 @@
             timerDisplay.textContent = timer;
             
             timerInterval = setInterval(() => {
-                timer--;
-                console.log("Timer value:", timer);
                 timerDisplay.textContent = timer;
-                if (timer <= 0) {
+                if (--timer < 0) {
                     clearInterval(timerInterval);
-                    document.body.style.backgroundColor = '#89c7be';
+                    // Removed the background color change
                 }
             }, 1000);
         }
