@@ -155,10 +155,15 @@
             transition: top 0.5s ease-out;
             z-index: 1000;
             display: none;
+            cursor: pointer; /* Add this to indicate it's clickable */
         }
 
         #time-up-image.visible {
             top: 20px; /* Final position */
+        }
+
+        #time-up-image.hiding {
+            top: -100px; /* Position when hiding */
         }
     </style>
 </head>
@@ -272,10 +277,27 @@
             
             image.classList.add('visible');
             
+            // Add click listener
+            image.addEventListener('click', hideTimeUpImage);
+            
             // Log the image's position after a short delay
             setTimeout(() => {
                 console.log("Image position:", image.getBoundingClientRect());
             }, 600);
+        }
+
+        function hideTimeUpImage(event) {
+            const image = event.target;
+            image.classList.remove('visible');
+            image.classList.add('hiding');
+            
+            // Remove the image after the transition
+            setTimeout(() => {
+                image.style.display = 'none';
+                image.classList.remove('hiding');
+                // Remove click listener
+                image.removeEventListener('click', hideTimeUpImage);
+            }, 500); // Match this to the transition duration in CSS
         }
 
         // Prevent any default behaviors that might interfere
