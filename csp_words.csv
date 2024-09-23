@@ -45,17 +45,17 @@ Arithmetic Operators,"+ addition, - subtraction, * multiplication, / division, a
 Canvas,The screen in which our graphics programs are drawn.,x
 Event,An action (such as clicking the mouse or pressing a key on the keyboard) that a program detects and uses as input.,x
 Callback Function,A function passed as a parameter to another function in order to be called later.,x
-Input Output (I/O),A general term in programming that refers to the flow of information into and out of a program,
-Boolean,A True or False value,
-Logical Operators,Used to make logical associations between boolean values.,
-Comparison Operator,Used to make comparisons between values.,
-else statement,Executes code only if all conditions are false,
-Non-sequential Programming,A programming paradigm where programs can have multiple tasks being completed at once or out of sequential order.,
-Pseudorandom,"Not actually random, but appears to be random",
-Break,Exits the current loop and resumes execution at the next statement.,
-Continue,Rejects all the remaining statements in the current iteration of the loop and moves the control back to the top of the loop to continue to the next iteration.,
-Argument,A variable passed as a value to a function,
-Return,"Exits a function, optionally passing back an expression to the caller.",
+Input Output (I/O),A general term in programming that refers to the flow of information into and out of a program,x
+Boolean,A True or False value,x
+Logical Operators,Used to make logical associations between boolean values.,x
+Comparison Operator,Used to make comparisons between values.,x
+else statement,Executes code only if all conditions are false,x
+Non-sequential Programming,A programming paradigm where programs can have multiple tasks being completed at once or out of sequential order.,x
+Pseudorandom,"Not actually random, but appears to be random",x
+Break,Exits the current loop and resumes execution at the next statement.,x
+Continue,Rejects all the remaining statements in the current iteration of the loop and moves the control back to the top of the loop to continue to the next iteration.,x
+Argument,A variable passed as a value to a function,x
+Return,"Exits a function, optionally passing back an expression to the caller.",x
 Scope,The region of code where a variable or function is accessible and can be used,
 Namespaces,The collection of variable names that exist at a certain point in your code.,
 Exceptions,"Runtime errors in a program. By default, they stop the program.",
