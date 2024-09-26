@@ -56,18 +56,18 @@ Break,Exits the current loop and resumes execution at the next statement.,x
 Continue,Rejects all the remaining statements in the current iteration of the loop and moves the control back to the top of the loop to continue to the next iteration.,x
 Argument,A variable passed as a value to a function,x
 Return,"Exits a function, optionally passing back an expression to the caller.",x
-Scope,The region of code where a variable or function is accessible and can be used,
-Namespaces,The collection of variable names that exist at a certain point in your code.,
-Exceptions,"Runtime errors in a program. By default, they stop the program.",
-Try and Except,Programming constructs that can be used to gracefully handle exceptions so that a program can continue in spite of them.,
-Standard Library,"The baseline, plain version of the programming language. It has the built-in functions that you use.",
-Local variable,A variable that is restricted to use in a certain scope of a program,
-Immutable,"Unable to change. Strings are examples of this - if you strip or concatenate a string, it is a brand new String.",
-Data Structure,A particular way of organizing data in our programs.,
-Tuple,"A heterogenous, immutable data type that stores an ordered sequence of things.",
-Heterogeneous,"The items stored can be of any type: numeric, string, boolean, etc.",
-List,"A heterogenous, mutable data type that stores an ordered sequence of things.",
-Mutable,When something is changeable or has the ability to change.,
+Scope,The region of code where a variable or function is accessible and can be used,x
+Namespaces,The collection of variable names that exist at a certain point in your code.,x
+Exceptions,"Runtime errors in a program. By default, they stop the program.",x
+Try and Except,Programming constructs that can be used to gracefully handle exceptions so that a program can continue in spite of them.,x
+Standard Library,"The baseline, plain version of the programming language. It has the built-in functions that you use.",x
+Local variable,A variable that is restricted to use in a certain scope of a program,x
+Immutable,"Unable to change. Strings are examples of this - if you strip or concatenate a string, it is a brand new String.",x
+Data Structure,A particular way of organizing data in our programs.,x
+Tuple,"A heterogenous, immutable data type that stores an ordered sequence of things.",x
+Heterogeneous,"The items stored can be of any type: numeric, string, boolean, etc.",x
+List,"A heterogenous, mutable data type that stores an ordered sequence of things.",x
+Mutable,When something is changeable or has the ability to change.,x
 join(),A method that takes all items in a collection and joins them into one string,
 List Indexing,Accessing certain elements in a list,
 count(),A method that counts occurrences of specific items in a list.,
