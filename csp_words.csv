@@ -68,16 +68,16 @@ Tuple,"A heterogenous, immutable data type that stores an ordered sequence of th
 Heterogeneous,"The items stored can be of any type: numeric, string, boolean, etc.",x
 List,"A heterogenous, mutable data type that stores an ordered sequence of things.",x
 Mutable,When something is changeable or has the ability to change.,x
-join(),A method that takes all items in a collection and joins them into one string,
-List Indexing,Accessing certain elements in a list,
-count(),A method that counts occurrences of specific items in a list.,
-append(),Add a particular item to the end of a list.,
-extend(),Takes a list as an argument and extends the current list with the list given as an argument.,
-sort(),Sorts the list in ascending order by default.,
-reverse(),Reverses the sorting order of the elements.,
-remove(),Removes the first occurrence of the element with the specified value.,
-Simulation,"A animated model that represents a real-life thing, process, or situation.",
-Model,A set of rules for how things interact within a simulation.,
+join(),A method that takes all items in a collection and joins them into one string,x
+List Indexing,Accessing certain elements in a list,x
+count(),A method that counts occurrences of specific items in a list.,x
+append(),Add a particular item to the end of a list.,x
+extend(),Takes a list as an argument and extends the current list with the list given as an argument.,x
+sort(),Sorts the list in ascending order by default.,x
+reverse(),Reverses the sorting order of the elements.,x
+remove(),Removes the first occurrence of the element with the specified value.,x
+Simulation,"A animated model that represents a real-life thing, process, or situation.",x
+Model,A set of rules for how things interact within a simulation.,x
 Digital Information,"Data that is created by, or prepared for, electronic systems and devices such as computers, screens, calculators, communication devices and so on.",
 Number System,"Defines which digits we can use, and what value each position (place value) in a number has.",
 Number Base,"Defines how many digits are in the number system, and the base of the exponent for each place value in a number.",
