@@ -78,21 +78,21 @@ reverse(),Reverses the sorting order of the elements.,x
 remove(),Removes the first occurrence of the element with the specified value.,x
 Simulation,"A animated model that represents a real-life thing, process, or situation.",x
 Model,A set of rules for how things interact within a simulation.,x
-Digital Information,"Data that is created by, or prepared for, electronic systems and devices such as computers, screens, calculators, communication devices and so on.",
-Number System,"Defines which digits we can use, and what value each position (place value) in a number has.",
-Number Base,"Defines how many digits are in the number system, and the base of the exponent for each place value in a number.",
-Decimal Number System,"The number system we use in out everyday lives. It has 10 digits, 0-9.",
-Binary Number System,"Number system that has 2 digits, 0 and 1. This is how computers represent numbers at the base level.",
-Bit,Short for binary digit. A single digit in a binary number. Can either be 0 or 1.,
-ASCII,The standard protocol for encoding text information as bits.,
-Pixel Image,An image can be represented as a grid of values. Each value encodes the color at that position in the image.,
-Pixel,"Images are made up of these, which are essentially a grid of values. Each value encodes the color at that position in the image.",
-Hexadecimal,Base 16 number system. It is a number system that only uses 16 digits (0 1 2 3 4 5 6 7 8 9 A B C D E F),
-RGB Color Encoding,"Defines the amount of Red, Green, and Blue light in a pixel.",
-Image filter,A procedure that applies a particular function to an image’s pixels to change its appearance,
-Data Compression,"The process of encoding information, using fewer bits than the original representation.",
-Lossless Compression,"Reducing the size of a file without loss of information. If data have been compressed this way, the original data can be recovered.",
-Lossy Compression,Throwing away some of the data to save space. We can throw away a lot of data without any noticeable difference from the original.,
+Digital Information,"Data that is created by, or prepared for, electronic systems and devices such as computers, screens, calculators, communication devices and so on.",x
+Number System,"Defines which digits we can use, and what value each position (place value) in a number has.",x
+Number Base,"Defines how many digits are in the number system, and the base of the exponent for each place value in a number.",x
+Decimal Number System,"The number system we use in out everyday lives. It has 10 digits, 0-9.",x
+Binary Number System,"Number system that has 2 digits, 0 and 1. This is how computers represent numbers at the base level.",x
+Bit,Short for binary digit. A single digit in a binary number. Can either be 0 or 1.,x
+ASCII,The standard protocol for encoding text information as bits.,x
+Pixel Image,An image can be represented as a grid of values. Each value encodes the color at that position in the image.,x
+Pixel,"Images are made up of these, which are essentially a grid of values. Each value encodes the color at that position in the image.",x
+Hexadecimal,Base 16 number system. It is a number system that only uses 16 digits (0 1 2 3 4 5 6 7 8 9 A B C D E F),x
+RGB Color Encoding,"Defines the amount of Red, Green, and Blue light in a pixel.",x
+Image filter,A procedure that applies a particular function to an image’s pixels to change its appearance,x
+Data Compression,"The process of encoding information, using fewer bits than the original representation.",x
+Lossless Compression,"Reducing the size of a file without loss of information. If data have been compressed this way, the original data can be recovered.",x
+Lossy Compression,Throwing away some of the data to save space. We can throw away a lot of data without any noticeable difference from the original.,x
 Cryptography,"Scrambling digital information into an unreadable form. Only those with verified authority (password, key, etc) can unscramble it to read it.",
 Caesar Cipher,"An encryption method in which each letter of the message is shifted by a certain amount, called the key",
 Symmetric Encryption,"The same key is used to encrypt and decrypt (e.g., Caesar, Vigenere)",
