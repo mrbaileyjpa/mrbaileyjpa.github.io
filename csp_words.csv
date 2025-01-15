@@ -93,15 +93,15 @@ Image filter,A procedure that applies a particular function to an image’s pixels
 Data Compression,"The process of encoding information, using fewer bits than the original representation.",x
 Lossless Compression,"Reducing the size of a file without loss of information. If data have been compressed this way, the original data can be recovered.",x
 Lossy Compression,Throwing away some of the data to save space. We can throw away a lot of data without any noticeable difference from the original.,x
-Cryptography,"Scrambling digital information into an unreadable form. Only those with verified authority (password, key, etc) can unscramble it to read it.",
-Caesar Cipher,"An encryption method in which each letter of the message is shifted by a certain amount, called the key",
-Symmetric Encryption,"The same key is used to encrypt and decrypt (e.g., Caesar, Vigenere)",
-Asymmetric Encryption,"One key encrypts, a different key decrypts.",
-Public Key Encryption,A type of asymmetric key encryption. There’s one key that encrypts the information and there is a different key that decrypts the information.,
-Key (cyber),A shared secret that allows the recipient to convert ciphertext into plaintext.,
-Decryption,The conversion of encrypted data into its original form.,
-Steganography,The art and science of concealing secret messages in such a way that no one apart from the intended recipient knows about the existence of the message.,
-Internet,"A network of networks built on open, agreed upon protocols.",
+Cryptography,"Scrambling digital information into an unreadable form. Only those with verified authority (password, key, etc) can unscramble it to read it.",x
+Caesar Cipher,"An encryption method in which each letter of the message is shifted by a certain amount, called the key",x
+Symmetric Encryption,"The same key is used to encrypt and decrypt (e.g., Caesar, Vigenere)",x
+Asymmetric Encryption,"One key encrypts, a different key decrypts.",x
+Public Key Encryption,A type of asymmetric key encryption. There’s one key that encrypts the information and there is a different key that decrypts the information.,x
+Key (cyber),A shared secret that allows the recipient to convert ciphertext into plaintext.,x
+Decryption,The conversion of encrypted data into its original form.,x
+Steganography,The art and science of concealing secret messages in such a way that no one apart from the intended recipient knows about the existence of the message.,x
+Internet,"A network of networks built on open, agreed upon protocols.",x
 Protocol,A widely agreed upon set of rules that standardize communication between machines.,
 Network,A group of two or more computer systems linked together.,
 Bitrate,The amount of data (in bits) that can be sent in a fixed amount of time.,
