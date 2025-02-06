@@ -102,33 +102,33 @@ Key (cyber),A shared secret that allows the recipient to convert ciphertext into
 Decryption,The conversion of encrypted data into its original form.,x
 Steganography,The art and science of concealing secret messages in such a way that no one apart from the intended recipient knows about the existence of the message.,x
 Internet,"A network of networks built on open, agreed upon protocols.",x
-Protocol,A widely agreed upon set of rules that standardize communication between machines.,
-Network,A group of two or more computer systems linked together.,
-Bitrate,The amount of data (in bits) that can be sent in a fixed amount of time.,
-Bandwidth,The capacity of data transfer in a system. Measured by bitrate.,
-Latency,The time it takes for a bit to travel from sender to receiver.,
-Network Device,An electronic device which is required for communication between devices.,
-Computing Devices,A computing device is a physical artifact that can run a program.,
-Input Devices,Input devices are computing devices that are used to take in information from a user or another device.,
-Output Devices,Output devices are computing devices that are used to send computer data to the user.,
-Storage Devices,Computing devices that remember information.,
-Computing Systems,A group of computing devices and programs working together for a common purpose.,
-Computer Network,A group of interconnected computing devices capable of sending or receiving data.,
-Internet Protocol (IP),A protocol that defines the structure of an Internet address and assigns a unique address to every device on the Internet.,
-IPv6,A new 128 bit version of the Internet Protocol.,
-URL,Uniform Resource Locator. You are locating a resource that exists somewhere on the internet.,
-HTTP Request,"A request is made by a client, to a named host, which is located on a server. The aim of the request is to access a resource on the server.",
-HTTP Response,A response is made by a server to a client. The aim of the response is to provide the client with the resource it requested.,
-Domain Name System (DNS),Used to translate domain names into IP addresses.,
-Routing,The process of sending data between two computers on the internet.,
-Redundancy,When multiple paths exist between two points. This improves reliability and makes the internet fault tolerable. Makes the routing system scalable.,
-Packets,Packets are the units of data that are sent over the network.,
-HTTP,HyperText Transfer Protocol is a protocol that standardizes the language for talking to web servers to send and receive web pages.,
-Transmission Control Protocol (TCP),Allows for sending MULTIPLE packets between two computers. Checks that all packets arrived and can be put back in the proper order.,
-Parallel and Distributed Programming,"Completes multiple tasks at a time, simultaneously.",
-DNS Spoofing,"Pretending to be a DNS name resolver. Feed your computer the wrong IP address for a given website, and your browser now goes to a false website.",
-DDoS Attack,Spam a web server with so many requests so close together that it crashes.,
-Certificate,Confirms the identity and authenticity of a website.,
+Protocol,A widely agreed upon set of rules that standardize communication between machines.,x
+Network,A group of two or more computer systems linked together.,x
+Bitrate,The amount of data (in bits) that can be sent in a fixed amount of time.,x
+Bandwidth,The capacity of data transfer in a system. Measured by bitrate.,x
+Latency,The time it takes for a bit to travel from sender to receiver.,x
+Network Device,An electronic device which is required for communication between devices.,x
+Computing Devices,A computing device is a physical artifact that can run a program.,x
+Input Devices,Input devices are computing devices that are used to take in information from a user or another device.,x
+Output Devices,Output devices are computing devices that are used to send computer data to the user.,x
+Storage Devices,Computing devices that remember information.,x
+Computing Systems,A group of computing devices and programs working together for a common purpose.,x
+Computer Network,A group of interconnected computing devices capable of sending or receiving data.,x
+Internet Protocol (IP),A protocol that defines the structure of an Internet address and assigns a unique address to every device on the Internet.,x
+IPv6,x,
+URL,x,
+HTTP Request,x,
+HTTP Response,x,
+Domain Name System (DNS),x,
+Routing,x,
+Redundancy,x,
+Packets,x,
+HTTP,x,
+Transmission Control Protocol (TCP),x,
+Parallel and Distributed Programming,x,
+DNS Spoofing,,
+DDoS Attack,,
+Certificate,,
 Anonymity,Situations where the acting person’s identity is unknown.,
 Censorship,"The suppression of words, images, or ideas that are “offensive.”",
 Digital Divide,A gap between those who have access to digital technology and those who don’t.,
