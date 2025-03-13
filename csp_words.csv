@@ -1,17 +1,17 @@
 Word/Phrase,Definition,Include
 Cybercrime,"Identity theft, stealing money, stealing private information, controlling private computers.",x
-Moore's Law,An observation that the processing speed of computers is doubling every year. This is exponential growth. Computers are getting smaller and faster at an exponential rate.,x
+Moore's Law,An observation that the processing speed of computers is doubling every year. This is exponential growth. Computers are getting smaller and faster at an exponential rate.,
 Computer Science,"The study of computational thinking, the thinking humans need to in order to describe a step by step process to a computer.",x
-Function Body,The part of a function that contains the commands,x
-Function,"Like a command that you get to invent and name. It allows us to break our program into smaller parts, making the program easier to understand.",x
-Function Call,A command given in computer code that makes a function run.,x
-Snake Case,The style of writing in which each space is replaced by an underscore _ character and the first letter of each word is lowercase.,x
-Define a Function,To teach the computer a new command and explain what it should do when receiving that command.,x
+Function Body,The part of a function that contains the commands,
+Function,"Like a command that you get to invent and name. It allows us to break our program into smaller parts, making the program easier to understand.",
+Function Call,A command given in computer code that makes a function run.,
+Snake Case,The style of writing in which each space is replaced by an underscore _ character and the first letter of each word is lowercase.,
+Define a Function,To teach the computer a new command and explain what it should do when receiving that command.,
 Decomposition,The process of breaking your program into smaller parts.,x
 Top Down Design,A method for building a program that consists of decomposing large sections into smaller modules.,x
-Precondition,Assumptions we make about what must be true before the function is called.,x
-Postcondition,What should be true after the function is called,x
-Comment,A message in your code that explains what is going on.,x
+Precondition,Assumptions we make about what must be true before the function is called.,
+Postcondition,What should be true after the function is called,
+Comment,A message in your code that explains what is going on.,
 Abstraction,"Managing complexity by hiding information and detail, in order to focus on the relevant concepts.",x
 Procedural Abstraction,"The ability to use methods and programs that we do not fully understand, or are unable to write.",x
 Application Programming Interfaces,APIs and libraries simplify complex programming tasks by providing sets of clearly defined methods of communication among various computing components.,x
@@ -107,31 +107,31 @@ Network,A group of two or more computer systems linked together.,x
 Bitrate,The amount of data (in bits) that can be sent in a fixed amount of time.,x
 Bandwidth,The capacity of data transfer in a system. Measured by bitrate.,x
 Latency,The time it takes for a bit to travel from sender to receiver.,x
-Network Device,An electronic device which is required for communication between devices.,x
-Computing Devices,A computing device is a physical artifact that can run a program.,x
-Input Devices,Input devices are computing devices that are used to take in information from a user or another device.,x
-Output Devices,Output devices are computing devices that are used to send computer data to the user.,x
-Storage Devices,Computing devices that remember information.,x
-Computing Systems,A group of computing devices and programs working together for a common purpose.,x
-Computer Network,A group of interconnected computing devices capable of sending or receiving data.,x
-Internet Protocol (IP),A protocol that defines the structure of an Internet address and assigns a unique address to every device on the Internet.,x
-IPv6,x,
-URL,x,
-HTTP Request,x,
-HTTP Response,x,
-Domain Name System (DNS),x,
-Routing,x,
-Redundancy,x,
-Packets,x,
-HTTP,x,
-Transmission Control Protocol (TCP),x,
-Parallel and Distributed Programming,x,
+Network Device,An electronic device which is required for communication between devices.,
+Computing Devices,A computing device is a physical artifact that can run a program.,
+Input Devices,Input devices are computing devices that are used to take in information from a user or another device.,
+Output Devices,Output devices are computing devices that are used to send computer data to the user.,
+Storage Devices,Computing devices that remember information.,
+Computing Systems,A group of computing devices and programs working together for a common purpose.,
+Computer Network,A group of interconnected computing devices capable of sending or receiving data.,
+Internet Protocol (IP),A protocol that defines the structure of an Internet address and assigns a unique address to every device on the Internet.,
+IPv6,,
+URL,,
+HTTP Request,,
+HTTP Response,,
+Domain Name System (DNS),,
+Routing,,
+Redundancy,,
+Packets,,
+HTTP,,
+Transmission Control Protocol (TCP),,
+Parallel and Distributed Programming,,
 DNS Spoofing,,
 DDoS Attack,,
 Certificate,,
 Anonymity,Situations where the acting person’s identity is unknown.,
 Censorship,"The suppression of words, images, or ideas that are “offensive.”",
-Digital Divide,A gap between those who have access to digital technology and those who don’t.,
+Digital Divide,A gap between those who have access to digital technology and those who don’t.,x
 Copyright,"A law that grants the creator of an original work exclusive rights to its use, distribution, and sale",
 Data,"Information (numbers, words, measurements, observations, etc) that is in a computer-readable form.",
 Data Visualization,"Using charts, graphs, or images to visualize complex data.",
@@ -139,3 +139,63 @@ Data Limitations,"Visualizations can be misleading by skewing the axes or labels
 Design Thinking,"An iterative process in which you seek to understand your users, challenge, assumptions, redefine problems and create innovative solutions which you can prototype and test.",
 Prototype,"A model designed to demonstrate the most basic functionality or basic design of a product, sometimes used as a proof of concept",
 Test (Design Thinking),"A chance to get feedback on your solutions, refine them, and make them better.",
+Heuristic,We use this when a problem cannot be solved in a reasonable time. It's like the next best thing to a perfect solution. ,x
+Logic Error,A mistake in an algorithm or program that causes it to behave incorrectly or unexpectedly. The program will not crash if this error is encountered.,x
+Syntax Error,A mistake in a program where the rules of the programming language are not followed.,x
+Run-time Error,A mistake in the program that occurs during the execution of a program and the program crashes.,x
+Overflow Error,An error that occurs when a computer attempts to handle a number that is outside of the defined range of values.,x
+Investigating and reflecting,The first stage of the development cycle - user requirements are discovered or adjusted based on testing.,x
+Designing,"The second stage of the development cycle - storyboards, user profiles, and planning program components happen in this stage.",x
+Prototyping,The third stage of the development cycle - wireframes and simple versions of the final application are created.,x
+Testing,The fourth stage of the development cycle - prototypes are provided to users. Usability is checked for different parts of the program. ,x
+Documentation,This helps in developing and maintaining correct programs when working individually or in collaborative programming environments.,x
+Inputs,"These are sent to programs in a variety of forms, such as tactile, audio, visual, or text.",x
+Events,"These can be generated when a key is pressed, a mouse is clicked, a program is started, or any other defined action occurs that affects the flow of execution.",x
+Bits, Computing devices represent data digitally. The lowest-level components of any value are called _____,x
+Byte,8 bits is called a ____,x
+Abstraction,The process of reducing complexity by focusing on the main idea,x
+Abstraction,"Hiding details irrelevant to a question and bringing together related and useful details, __________ reduces complexity",x
+Analog Data,"These kind of data have values that change smoothly, rather than in discrete intervals, over time.",x
+Sampling, When we want to represent analog data digitally we can use a technique called ______.,x
+8,The binary number 1000 in decimal form.,x
+15,The binary number 1111 in decimal form.,x
+double,Adding one extra bit will give us _________ the amount of values we had available before.,x
+2^5,32 represent as a power of 2.,x
+0-F,"The values where hexadecimal numbers start and end (starts at __, ends at __)",x
+Data Compression,This process can reduce the size (number of bits) of transmitted or stored data.,x
+Lossless Data Compression,This process can usually reduce the number of bits stored or transmitted while guaranteeing complete reconstruction of the original data.,x
+Lossy Data Compression,This process can significantly reduce the number of bits stored or transmitted but only allow reconstruction of an approximation of the original data.,x
+Data,"Companies, governments, and other organizations analyze this to identify trends, make connections, and address
+problems.",x
+Causal relationship,A correlation found in data does not necessarily indicate that a _______   ___________exists,x
+Metadata,"Data about data. For example, the date an image was created.",x
+Cleaning Data,"A process that makes the data uniform without changing their meaning (e.g., replacing all equivalent abbreviations, spellings, and capitalization with the same word).",x
+Spreadsheets,Programs such as these help efficiently organize and find trends in information.,x
+Binary Search Algorithm,This algorithm starts at the middle of a sorted data set of numbers and eliminates half of the data; this process repeats until the desired value is found or all elements have been eliminated.,x
+Sorted,"In a binary search algorithm, data must be _______",x
+Linear or Sequential,An algorithm that searches through data one-by-one is called a _______ search.,x
+Documentation,"In order to understand how to use a library or API, we often have to read the __________ that comes with it. ",x
+Decision,A kind of problem that has a yes or no answer is a called a ________ problem,x
+Optimization,A kind of problem where the goal is to find the best solution among many is called a ________ problem,x
+Polynomial,"Algorithms with a __________  efficiency or slower (constant, linear, square, cube, etc.) are said to run in a reasonable amount of time",x
+"Exponential, Factorial",Algorithms with _________ or _________ efficiencies are examples of algorithms that run in an unreasonable amount of time.,x
+Decidable Problem,"A decision problem for which an algorithm can be written to produce a correct output for all inputs (e.g., “Is the number even?”).",x
+Undecidable Problem,A problem for which no algorithm can be constructed that is always capable of providing a correct yes-or-no answer.,x
+Computing Device,A physical artifact that can run a program.,x
+Computing System,A group of computing devices and programs working together for a common purpose.,x
+Network,A group of interconnected computing devices capable of sending or receiving data.,x
+Routing,The process of finding a path from sender to receiver.,x
+Bandwidth,The maximum amount of data that can be sent in a computer network in a fixed amount of time.,x
+The Internet,"A computer network consisting of interconnected networks that use standardized, open (non-proprietary) communication protocols.",x
+A protocol,An agreed-upon set of rules that specify the behavior of a system.,x
+scalability,The _________ of a system is the capacity for the system to change in size and grow to meet new demands.,x
+Packets,"Data streams contain chunks of data, which are encapsulated in ________.",x
+TCP,A protocol that ensures all information is delivered.,x
+UDP,A protocol that ensures information is delivered quickly. No checks are made to ensure everything arrives. ,x
+World Wide Web,"A system of linked pages, programs, and files.",x
+HTTP - HyperText Transfer Protocol,A protocol used by the World Wide Web.,x
+Redundancy,The inclusion of extra components that can be used to mitigate failure of a system if other components fail.,x
+Fault-tolerant,"When a system can support failures and still continue to function, it is called _____________.",x
+Sequential Computing,A computational model in which operations are performed in order one at a time.,x
+Parallel Computing,"A computational model where the program is broken into multiple smaller sequential computing operations, some of which are performed simultaneously.",x
+Distributed Computing,A computational model in which multiple devices are used to run a program.,x
