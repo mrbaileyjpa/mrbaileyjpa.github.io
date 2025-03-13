@@ -15,57 +15,57 @@ Comment,A message in your code that explains what is going on.,
 Abstraction,"Managing complexity by hiding information and detail, in order to focus on the relevant concepts.",x
 Procedural Abstraction,"The ability to use methods and programs that we do not fully understand, or are unable to write.",x
 Application Programming Interfaces,APIs and libraries simplify complex programming tasks by providing sets of clearly defined methods of communication among various computing components.,x
-Documentation,"Written instructions detailing the functions, methods, and variables available and how to use them.",x
+Documentation,"Written instructions detailing the functions, methods, and variables available and how to use them.",
 For Loop,A loop that lets us repeat code a fixed number of times.,x
 Condition,Code that you put inside an if statement or while-loop.,x
 if statement,Executes code only if condition is true,x
 If Else Statement,Control structure that lets us run either one section of code or another depending on a test.,x
 While Loop,Lets us repeat code as long as something is true.,x
 Control Structure,The management and changing of the flow of our code.,x
-Bug,A problem in your code.,x
-Debugging,Fixing a problem in your code.,x
-Pseudocode,A brief explanation of code in plain English.,x
+Bug,A problem in your code.,
+Debugging,Fixing a problem in your code.,
+Pseudocode,A brief explanation of code in plain English.,
 Algorithm,A set of steps or rules to follow to solve a particular problem.,x
 Sequencing,Step by step execution of instructions in the order they are given.,x
 Iteration,"Repetition of instructions a specified number of times, or until a condition is met.",x
-Selection,Using a condition to determine which part of an algorithm is executed.,x
-Parameters,Pieces of information you can give to functions when you define them.,x
-Pair Programming,A collaborative programming practice where two programmers work together at one computer on the same piece of code.,x
-Driver,This person's role is to control the mouse and keyboard and type out the code.,x
-Navigator,This person's role is to read the problem and narrate the plan-of-action,x
-Code,The name for the instructions you write to a computer in a program.,x
-Programming Language,"Any set of rules that converts strings, or graphical program elements to various kinds of machine code output.",x
-Variable,A symbol or container that holds a value.,x
-Initialize a Variable,Giving a variable an initial value.,x
-Concatenation,Adding two strings together using the + operator.,x
-input(),A function that prints a prompt and retrieves text from the user.,x
-Type Conversion,"The process of converting the value of one data type (integer, string, float, etc.) to another data type.",x
-Floating Point Numbers,"Real numbers that are written with a decimal point, dividing the integer and fractional parts.",x
-Arithmetic Operators,"+ addition, - subtraction, * multiplication, / division, and % modulus. These operators are used to perform basic mathematical tasks.",x
-Canvas,The screen in which our graphics programs are drawn.,x
-Event,An action (such as clicking the mouse or pressing a key on the keyboard) that a program detects and uses as input.,x
-Callback Function,A function passed as a parameter to another function in order to be called later.,x
-Input Output (I/O),A general term in programming that refers to the flow of information into and out of a program,x
+Selection,Using a condition to determine which part of an algorithm is executed.,
+Parameters,Pieces of information you can give to functions when you define them.,
+Pair Programming,A collaborative programming practice where two programmers work together at one computer on the same piece of code.,
+Driver,This person's role is to control the mouse and keyboard and type out the code.,
+Navigator,This person's role is to read the problem and narrate the plan-of-action,
+Code,The name for the instructions you write to a computer in a program.,
+Programming Language,"Any set of rules that converts strings, or graphical program elements to various kinds of machine code output.",
+Variable,A symbol or container that holds a value.,
+Initialize a Variable,Giving a variable an initial value.,
+Concatenation,Adding two strings together using the + operator.,
+input(),A function that prints a prompt and retrieves text from the user.,
+Type Conversion,"The process of converting the value of one data type (integer, string, float, etc.) to another data type.",
+Floating Point Numbers,"Real numbers that are written with a decimal point, dividing the integer and fractional parts.",
+Arithmetic Operators,"+ addition, - subtraction, * multiplication, / division, and % modulus. These operators are used to perform basic mathematical tasks.",
+Canvas,The screen in which our graphics programs are drawn.,
+Event,An action (such as clicking the mouse or pressing a key on the keyboard) that a program detects and uses as input.,
+Callback Function,A function passed as a parameter to another function in order to be called later.,
+Input Output (I/O),A general term in programming that refers to the flow of information into and out of a program,
 Boolean,A True or False value,x
 Logical Operators,Used to make logical associations between boolean values.,x
 Comparison Operator,Used to make comparisons between values.,x
-else statement,Executes code only if all conditions are false,x
-Non-sequential Programming,A programming paradigm where programs can have multiple tasks being completed at once or out of sequential order.,x
-Pseudorandom,"Not actually random, but appears to be random",x
+else statement,Executes code only if all conditions are false,
+Non-sequential Programming,A programming paradigm where programs can have multiple tasks being completed at once or out of sequential order.,
+Pseudorandom,"Not actually random, but appears to be random",
 Break,Exits the current loop and resumes execution at the next statement.,x
 Continue,Rejects all the remaining statements in the current iteration of the loop and moves the control back to the top of the loop to continue to the next iteration.,x
 Argument,A variable passed as a value to a function,x
 Return,"Exits a function, optionally passing back an expression to the caller.",x
 Scope,The region of code where a variable or function is accessible and can be used,x
-Namespaces,The collection of variable names that exist at a certain point in your code.,x
-Exceptions,"Runtime errors in a program. By default, they stop the program.",x
-Try and Except,Programming constructs that can be used to gracefully handle exceptions so that a program can continue in spite of them.,x
-Standard Library,"The baseline, plain version of the programming language. It has the built-in functions that you use.",x
+Namespaces,The collection of variable names that exist at a certain point in your code.,
+Exceptions,"Runtime errors in a program. By default, they stop the program.",
+Try and Except,Programming constructs that can be used to gracefully handle exceptions so that a program can continue in spite of them.,
+Standard Library,"The baseline, plain version of the programming language. It has the built-in functions that you use.",
 Local variable,A variable that is restricted to use in a certain scope of a program,x
 Immutable,"Unable to change. Strings are examples of this - if you strip or concatenate a string, it is a brand new String.",x
-Data Structure,A particular way of organizing data in our programs.,x
-Tuple,"A heterogenous, immutable data type that stores an ordered sequence of things.",x
-Heterogeneous,"The items stored can be of any type: numeric, string, boolean, etc.",x
+Data Structure,A particular way of organizing data in our programs.,
+Tuple,"A heterogenous, immutable data type that stores an ordered sequence of things.",
+Heterogeneous,"The items stored can be of any type: numeric, string, boolean, etc.",
 List,"A heterogenous, mutable data type that stores an ordered sequence of things.",x
 Mutable,When something is changeable or has the ability to change.,x
 join(),A method that takes all items in a collection and joins them into one string,x
@@ -79,34 +79,34 @@ remove(),Removes the first occurrence of the element with the specified value.,x
 Simulation,"A animated model that represents a real-life thing, process, or situation.",x
 Model,A set of rules for how things interact within a simulation.,x
 Digital Information,"Data that is created by, or prepared for, electronic systems and devices such as computers, screens, calculators, communication devices and so on.",x
-Number System,"Defines which digits we can use, and what value each position (place value) in a number has.",x
-Number Base,"Defines how many digits are in the number system, and the base of the exponent for each place value in a number.",x
-Decimal Number System,"The number system we use in out everyday lives. It has 10 digits, 0-9.",x
-Binary Number System,"Number system that has 2 digits, 0 and 1. This is how computers represent numbers at the base level.",x
+Number System,"Defines which digits we can use, and what value each position (place value) in a number has.",
+Number Base,"Defines how many digits are in the number system, and the base of the exponent for each place value in a number.",
+Decimal Number System,"The number system we use in out everyday lives. It has 10 digits, 0-9.",
+Binary Number System,"Number system that has 2 digits, 0 and 1. This is how computers represent numbers at the base level.",
 Bit,Short for binary digit. A single digit in a binary number. Can either be 0 or 1.,x
 ASCII,The standard protocol for encoding text information as bits.,x
-Pixel Image,An image can be represented as a grid of values. Each value encodes the color at that position in the image.,x
+Pixel Image,An image can be represented as a grid of values. Each value encodes the color at that position in the image.,
 Pixel,"Images are made up of these, which are essentially a grid of values. Each value encodes the color at that position in the image.",x
 Hexadecimal,Base 16 number system. It is a number system that only uses 16 digits (0 1 2 3 4 5 6 7 8 9 A B C D E F),x
 RGB Color Encoding,"Defines the amount of Red, Green, and Blue light in a pixel.",x
-Image filter,A procedure that applies a particular function to an image’s pixels to change its appearance,x
-Data Compression,"The process of encoding information, using fewer bits than the original representation.",x
-Lossless Compression,"Reducing the size of a file without loss of information. If data have been compressed this way, the original data can be recovered.",x
-Lossy Compression,Throwing away some of the data to save space. We can throw away a lot of data without any noticeable difference from the original.,x
+Image filter,A procedure that applies a particular function to an image’s pixels to change its appearance,
+Data Compression,"The process of encoding information, using fewer bits than the original representation.",
+Lossless Compression,"Reducing the size of a file without loss of information. If data have been compressed this way, the original data can be recovered.",
+Lossy Compression,Throwing away some of the data to save space. We can throw away a lot of data without any noticeable difference from the original.,
 Cryptography,"Scrambling digital information into an unreadable form. Only those with verified authority (password, key, etc) can unscramble it to read it.",x
 Caesar Cipher,"An encryption method in which each letter of the message is shifted by a certain amount, called the key",x
 Symmetric Encryption,"The same key is used to encrypt and decrypt (e.g., Caesar, Vigenere)",x
 Asymmetric Encryption,"One key encrypts, a different key decrypts.",x
 Public Key Encryption,A type of asymmetric key encryption. There’s one key that encrypts the information and there is a different key that decrypts the information.,x
-Key (cyber),A shared secret that allows the recipient to convert ciphertext into plaintext.,x
+Key (cyber),A shared secret that allows the recipient to convert ciphertext into plaintext.,
 Decryption,The conversion of encrypted data into its original form.,x
 Steganography,The art and science of concealing secret messages in such a way that no one apart from the intended recipient knows about the existence of the message.,x
-Internet,"A network of networks built on open, agreed upon protocols.",x
-Protocol,A widely agreed upon set of rules that standardize communication between machines.,x
-Network,A group of two or more computer systems linked together.,x
-Bitrate,The amount of data (in bits) that can be sent in a fixed amount of time.,x
-Bandwidth,The capacity of data transfer in a system. Measured by bitrate.,x
-Latency,The time it takes for a bit to travel from sender to receiver.,x
+Internet,"A network of networks built on open, agreed upon protocols.",
+Protocol,A widely agreed upon set of rules that standardize communication between machines.,
+Network,A group of two or more computer systems linked together.,
+Bitrate,The amount of data (in bits) that can be sent in a fixed amount of time.,
+Bandwidth,The capacity of data transfer in a system. Measured by bitrate.,
+Latency,The time it takes for a bit to travel from sender to receiver.,
 Network Device,An electronic device which is required for communication between devices.,
 Computing Devices,A computing device is a physical artifact that can run a program.,
 Input Devices,Input devices are computing devices that are used to take in information from a user or another device.,
