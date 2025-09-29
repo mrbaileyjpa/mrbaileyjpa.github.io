@@ -1,23 +1,23 @@
 Word/Phrase,Definition,Include
-Cybercrime,"Identity theft, stealing money, stealing private information, controlling private computers.",x
+Cybercrime,"Identity theft, stealing money, stealing private information, controlling private computers.",
 Moore's Law,An observation that the processing speed of computers is doubling every year. This is exponential growth. Computers are getting smaller and faster at an exponential rate.,
-Computer Science,"The study of computational thinking, the thinking humans need to in order to describe a step by step process to a computer.",x
+Computer Science,"The study of computational thinking, the thinking humans need to in order to describe a step by step process to a computer.",
 Function Body,The part of a function that contains the commands,
 Function,"Like a command that you get to invent and name. It allows us to break our program into smaller parts, making the program easier to understand.",
 Function Call,A command given in computer code that makes a function run.,
 Snake Case,The style of writing in which each space is replaced by an underscore _ character and the first letter of each word is lowercase.,
 Define a Function,To teach the computer a new command and explain what it should do when receiving that command.,
 Decomposition,The process of breaking your program into smaller parts.,x
-Top Down Design,A method for building a program that consists of decomposing large sections into smaller modules.,x
+Top Down Design,A method for building a program that consists of decomposing large sections into smaller modules.,
 Precondition,Assumptions we make about what must be true before the function is called.,
 Postcondition,What should be true after the function is called,
 Comment,A message in your code that explains what is going on.,
 Abstraction,"Managing complexity by hiding information and detail, in order to focus on the relevant concepts.",x
-Procedural Abstraction,"The ability to use methods and programs that we do not fully understand, or are unable to write.",x
-Application Programming Interfaces,APIs and libraries simplify complex programming tasks by providing sets of clearly defined methods of communication among various computing components.,x
+Procedural Abstraction,"The ability to use methods and programs that we do not fully understand, or are unable to write.",
+Application Programming Interfaces,APIs and libraries simplify complex programming tasks by providing sets of clearly defined methods of communication among various computing components.,
 Documentation,"Written instructions detailing the functions, methods, and variables available and how to use them.",
 For Loop,A loop that lets us repeat code a fixed number of times.,x
-Condition,Code that you put inside an if statement or while-loop.,x
+Condition,Code that you put inside an if statement or while-loop.,
 if statement,Executes code only if condition is true,x
 If Else Statement,Control structure that lets us run either one section of code or another depending on a test.,x
 While Loop,Lets us repeat code as long as something is true.,x
@@ -52,55 +52,55 @@ Comparison Operator,Used to make comparisons between values.,x
 else statement,Executes code only if all conditions are false,
 Non-sequential Programming,A programming paradigm where programs can have multiple tasks being completed at once or out of sequential order.,
 Pseudorandom,"Not actually random, but appears to be random",
-Break,Exits the current loop and resumes execution at the next statement.,x
-Continue,Rejects all the remaining statements in the current iteration of the loop and moves the control back to the top of the loop to continue to the next iteration.,x
+Break,Exits the current loop and resumes execution at the next statement.,
+Continue,Rejects all the remaining statements in the current iteration of the loop and moves the control back to the top of the loop to continue to the next iteration.,
 Argument,A variable passed as a value to a function,x
 Return,"Exits a function, optionally passing back an expression to the caller.",x
-Scope,The region of code where a variable or function is accessible and can be used,x
+Scope,The region of code where a variable or function is accessible and can be used,
 Namespaces,The collection of variable names that exist at a certain point in your code.,
 Exceptions,"Runtime errors in a program. By default, they stop the program.",
 Try and Except,Programming constructs that can be used to gracefully handle exceptions so that a program can continue in spite of them.,
 Standard Library,"The baseline, plain version of the programming language. It has the built-in functions that you use.",
 Local variable,A variable that is restricted to use in a certain scope of a program,x
-Immutable,"Unable to change. Strings are examples of this - if you strip or concatenate a string, it is a brand new String.",x
+Immutable,"Unable to change. Strings are examples of this - if you strip or concatenate a string, it is a brand new String.",
 Data Structure,A particular way of organizing data in our programs.,
 Tuple,"A heterogenous, immutable data type that stores an ordered sequence of things.",
 Heterogeneous,"The items stored can be of any type: numeric, string, boolean, etc.",
 List,"A heterogenous, mutable data type that stores an ordered sequence of things.",x
-Mutable,When something is changeable or has the ability to change.,x
+Mutable,When something is changeable or has the ability to change.,
 join(),A method that takes all items in a collection and joins them into one string,x
-List Indexing,Accessing certain elements in a list,x
-count(),A method that counts occurrences of specific items in a list.,x
-append(),Add a particular item to the end of a list.,x
-extend(),Takes a list as an argument and extends the current list with the list given as an argument.,x
-sort(),Sorts the list in ascending order by default.,x
-reverse(),Reverses the sorting order of the elements.,x
-remove(),Removes the first occurrence of the element with the specified value.,x
-Simulation,"A animated model that represents a real-life thing, process, or situation.",x
-Model,A set of rules for how things interact within a simulation.,x
-Digital Information,"Data that is created by, or prepared for, electronic systems and devices such as computers, screens, calculators, communication devices and so on.",x
+List Indexing,Accessing certain elements in a list,
+count(),A method that counts occurrences of specific items in a list.,
+append(),Add a particular item to the end of a list.,
+extend(),Takes a list as an argument and extends the current list with the list given as an argument.,
+sort(),Sorts the list in ascending order by default.,
+reverse(),Reverses the sorting order of the elements.,
+remove(),Removes the first occurrence of the element with the specified value.,
+Simulation,"A animated model that represents a real-life thing, process, or situation.",
+Model,A set of rules for how things interact within a simulation.,
+Digital Information,"Data that is created by, or prepared for, electronic systems and devices such as computers, screens, calculators, communication devices and so on.",
 Number System,"Defines which digits we can use, and what value each position (place value) in a number has.",
 Number Base,"Defines how many digits are in the number system, and the base of the exponent for each place value in a number.",
 Decimal Number System,"The number system we use in out everyday lives. It has 10 digits, 0-9.",
 Binary Number System,"Number system that has 2 digits, 0 and 1. This is how computers represent numbers at the base level.",
 Bit,Short for binary digit. A single digit in a binary number. Can either be 0 or 1.,x
-ASCII,The standard protocol for encoding text information as bits.,x
+ASCII,The standard protocol for encoding text information as bits. American Standard…,x
 Pixel Image,An image can be represented as a grid of values. Each value encodes the color at that position in the image.,
 Pixel,"Images are made up of these, which are essentially a grid of values. Each value encodes the color at that position in the image.",x
 Hexadecimal,Base 16 number system. It is a number system that only uses 16 digits (0 1 2 3 4 5 6 7 8 9 A B C D E F),x
-RGB Color Encoding,"Defines the amount of Red, Green, and Blue light in a pixel.",x
+RGB Color Encoding,"Defines the amount of Red, Green, and Blue light in a pixel.",
 Image filter,A procedure that applies a particular function to an image’s pixels to change its appearance,
 Data Compression,"The process of encoding information, using fewer bits than the original representation.",
 Lossless Compression,"Reducing the size of a file without loss of information. If data have been compressed this way, the original data can be recovered.",
 Lossy Compression,Throwing away some of the data to save space. We can throw away a lot of data without any noticeable difference from the original.,
-Cryptography,"Scrambling digital information into an unreadable form. Only those with verified authority (password, key, etc) can unscramble it to read it.",x
-Caesar Cipher,"An encryption method in which each letter of the message is shifted by a certain amount, called the key",x
-Symmetric Encryption,"The same key is used to encrypt and decrypt (e.g., Caesar, Vigenere)",x
-Asymmetric Encryption,"One key encrypts, a different key decrypts.",x
-Public Key Encryption,A type of asymmetric key encryption. There’s one key that encrypts the information and there is a different key that decrypts the information.,x
+Cryptography,"Scrambling digital information into an unreadable form. Only those with verified authority (password, key, etc) can unscramble it to read it.",
+Caesar Cipher,"An encryption method in which each letter of the message is shifted by a certain amount, called the key",
+Symmetric Encryption,"The same key is used to encrypt and decrypt (e.g., Caesar, Vigenere)",
+Asymmetric Encryption,"One key encrypts, a different key decrypts.",
+Public Key Encryption,A type of asymmetric key encryption. There’s one key that encrypts the information and there is a different key that decrypts the information.,
 Key (cyber),A shared secret that allows the recipient to convert ciphertext into plaintext.,
-Decryption,The conversion of encrypted data into its original form.,x
-Steganography,The art and science of concealing secret messages in such a way that no one apart from the intended recipient knows about the existence of the message.,x
+Decryption,The conversion of encrypted data into its original form.,
+Steganography,The art and science of concealing secret messages in such a way that no one apart from the intended recipient knows about the existence of the message.,
 Internet,"A network of networks built on open, agreed upon protocols.",
 Protocol,A widely agreed upon set of rules that standardize communication between machines.,
 Network,A group of two or more computer systems linked together.,
@@ -130,7 +130,7 @@ DDoS Attack,,
 Certificate,,
 Anonymity,Situations where the acting person’s identity is unknown.,
 Censorship,"The suppression of words, images, or ideas that are “offensive.”",
-Digital Divide,A gap between those who have access to digital technology and those who don’t.,x
+Digital Divide,A gap between those who have access to digital technology and those who don’t.,
 Copyright,"A law that grants the creator of an original work exclusive rights to its use, distribution, and sale",
 Data,"Information (numbers, words, measurements, observations, etc) that is in a computer-readable form.",
 Data Visualization,"Using charts, graphs, or images to visualize complex data.",
@@ -138,63 +138,63 @@ Data Limitations,"Visualizations can be misleading by skewing the axes or labels
 Design Thinking,"An iterative process in which you seek to understand your users, challenge, assumptions, redefine problems and create innovative solutions which you can prototype and test.",
 Prototype,"A model designed to demonstrate the most basic functionality or basic design of a product, sometimes used as a proof of concept",
 Test (Design Thinking),"A chance to get feedback on your solutions, refine them, and make them better.",
-Heuristic,We use this when a problem cannot be solved in a reasonable time. It's like the next best thing to a perfect solution. ,x
+Heuristic,We use this when a problem cannot be solved in a reasonable time. It's like the next best thing to a perfect solution. ,
 Logic Error,A mistake in an algorithm or program that causes it to behave incorrectly or unexpectedly. The program will not crash if this error is encountered.,x
 Syntax Error,A mistake in a program where the rules of the programming language are not followed.,x
 Run-time Error,A mistake in the program that occurs during the execution of a program and the program crashes.,x
 Overflow Error,An error that occurs when a computer attempts to handle a number that is outside of the defined range of values.,x
-Investigating and reflecting,The first stage of the development cycle - user requirements are discovered or adjusted based on testing.,x
-Designing,"The second stage of the development cycle - storyboards, user profiles, and planning program components happen in this stage.",x
-Prototyping,The third stage of the development cycle - wireframes and simple versions of the final application are created.,x
-Testing,The fourth stage of the development cycle - prototypes are provided to users. Usability is checked for different parts of the program. ,x
-Documentation,This helps in developing and maintaining correct programs when working individually or in collaborative programming environments.,x
-Inputs,"These are sent to programs in a variety of forms, such as tactile, audio, visual, or text.",x
-Events,"These can be generated when a key is pressed, a mouse is clicked, a program is started, or any other defined action occurs that affects the flow of execution.",x
+Investigating and reflecting,The first stage of the development cycle - user requirements are discovered or adjusted based on testing.,
+Designing,"The second stage of the development cycle - storyboards, user profiles, and planning program components happen in this stage.",
+Prototyping,The third stage of the development cycle - wireframes and simple versions of the final application are created.,
+Testing,The fourth stage of the development cycle - prototypes are provided to users. Usability is checked for different parts of the program. ,
+Documentation,This helps in developing and maintaining correct programs when working individually or in collaborative programming environments.,
+Inputs,"These are sent to programs in a variety of forms, such as tactile, audio, visual, or text.",
+Events,"These can be generated when a key is pressed, a mouse is clicked, a program is started, or any other defined action occurs that affects the flow of execution.",
 Bits, Computing devices represent data digitally. The lowest-level components of any value are called _____,x
 Byte,8 bits is called a ____,x
 Abstraction,The process of reducing complexity by focusing on the main idea,x
-Abstraction,"Hiding details irrelevant to a question and bringing together related and useful details, __________ reduces complexity",x
-Analog Data,"These kind of data have values that change smoothly, rather than in discrete intervals, over time.",x
-Sampling, When we want to represent analog data digitally we can use a technique called ______.,x
-8,The binary number 1000 in decimal form.,x
-15,The binary number 1111 in decimal form.,x
-double,Adding one extra bit will give us _________ the amount of values we had available before.,x
-2^5,32 represent as a power of 2.,x
-0-F,"The values where hexadecimal numbers start and end (starts at __, ends at __)",x
-Data Compression,This process can reduce the size (number of bits) of transmitted or stored data.,x
-Lossless Data Compression,This process can usually reduce the number of bits stored or transmitted while guaranteeing complete reconstruction of the original data.,x
-Lossy Data Compression,This process can significantly reduce the number of bits stored or transmitted but only allow reconstruction of an approximation of the original data.,x
+Abstraction,"Hiding details irrelevant to a question and bringing together related and useful details, __________ reduces complexity",
+Analog Data,"These kind of data have values that change smoothly, rather than in discrete intervals, over time.",
+Sampling, When we want to represent analog data digitally we can use a technique called ______.,
+8,The binary number 1000 in decimal form.,
+15,The binary number 1111 in decimal form.,
+double,Adding one extra bit will give us _________ the amount of values we had available before.,
+2^5,32 represent as a power of 2.,
+0-F,"The values where hexadecimal numbers start and end (starts at __, ends at __)",
+Data Compression,This process can reduce the size (number of bits) of transmitted or stored data.,
+Lossless Data Compression,This process can usually reduce the number of bits stored or transmitted while guaranteeing complete reconstruction of the original data.,
+Lossy Data Compression,This process can significantly reduce the number of bits stored or transmitted but only allow reconstruction of an approximation of the original data.,
 Data,"Companies, governments, and other organizations analyze this to identify trends, make connections, and address
-problems.",x
-Causal relationship,A correlation found in data does not necessarily indicate that a _______   ___________exists,x
-Metadata,"Data about data. For example, the date an image was created.",x
-Cleaning Data,"A process that makes the data uniform without changing their meaning (e.g., replacing all equivalent abbreviations, spellings, and capitalization with the same word).",x
-Spreadsheets,Programs such as these help efficiently organize and find trends in information.,x
-Binary Search Algorithm,This algorithm starts at the middle of a sorted data set of numbers and eliminates half of the data; this process repeats until the desired value is found or all elements have been eliminated.,x
-Sorted,"In a binary search algorithm, data must be _______",x
-Linear or Sequential,An algorithm that searches through data one-by-one is called a _______ search.,x
-Documentation,"In order to understand how to use a library or API, we often have to read the __________ that comes with it. ",x
-Decision,A kind of problem that has a yes or no answer is a called a ________ problem,x
-Optimization,A kind of problem where the goal is to find the best solution among many is called a ________ problem,x
-Polynomial,"Algorithms with a __________  efficiency or slower (constant, linear, square, cube, etc.) are said to run in a reasonable amount of time",x
-"Exponential, Factorial",Algorithms with _________ or _________ efficiencies are examples of algorithms that run in an unreasonable amount of time.,x
-Decidable Problem,"A decision problem for which an algorithm can be written to produce a correct output for all inputs (e.g., “Is the number even?”).",x
-Undecidable Problem,A problem for which no algorithm can be constructed that is always capable of providing a correct yes-or-no answer.,x
-Computing Device,A physical artifact that can run a program.,x
-Computing System,A group of computing devices and programs working together for a common purpose.,x
-Network,A group of interconnected computing devices capable of sending or receiving data.,x
-Routing,The process of finding a path from sender to receiver.,x
-Bandwidth,The maximum amount of data that can be sent in a computer network in a fixed amount of time.,x
-The Internet,"A computer network consisting of interconnected networks that use standardized, open (non-proprietary) communication protocols.",x
-A protocol,An agreed-upon set of rules that specify the behavior of a system.,x
-scalability,The _________ of a system is the capacity for the system to change in size and grow to meet new demands.,x
-Packets,"Data streams contain chunks of data, which are encapsulated in ________.",x
-TCP,A protocol that ensures all information is delivered.,x
-UDP,A protocol that ensures information is delivered quickly. No checks are made to ensure everything arrives. ,x
-World Wide Web,"A system of linked pages, programs, and files.",x
-HTTP - HyperText Transfer Protocol,A protocol used by the World Wide Web.,x
-Redundancy,The inclusion of extra components that can be used to mitigate failure of a system if other components fail.,x
-Fault-tolerant,"When a system can support failures and still continue to function, it is called _____________.",x
-Sequential Computing,A computational model in which operations are performed in order one at a time.,x
-Parallel Computing,"A computational model where the program is broken into multiple smaller sequential computing operations, some of which are performed simultaneously.",x
-Distributed Computing,A computational model in which multiple devices are used to run a program.,x
+problems.",
+Causal relationship,A correlation found in data does not necessarily indicate that a _______   ___________exists,
+Metadata,"Data about data. For example, the date an image was created.",
+Cleaning Data,"A process that makes the data uniform without changing their meaning (e.g., replacing all equivalent abbreviations, spellings, and capitalization with the same word).",
+Spreadsheets,Programs such as these help efficiently organize and find trends in information.,
+Binary Search Algorithm,This algorithm starts at the middle of a sorted data set of numbers and eliminates half of the data; this process repeats until the desired value is found or all elements have been eliminated.,
+Sorted,"In a binary search algorithm, data must be _______",
+Linear or Sequential,An algorithm that searches through data one-by-one is called a _______ search.,
+Documentation,"In order to understand how to use a library or API, we often have to read the __________ that comes with it. ",
+Decision,A kind of problem that has a yes or no answer is a called a ________ problem,
+Optimization,A kind of problem where the goal is to find the best solution among many is called a ________ problem,
+Polynomial,"Algorithms with a __________  efficiency or slower (constant, linear, square, cube, etc.) are said to run in a reasonable amount of time",
+"Exponential, Factorial",Algorithms with _________ or _________ efficiencies are examples of algorithms that run in an unreasonable amount of time.,
+Decidable Problem,"A decision problem for which an algorithm can be written to produce a correct output for all inputs (e.g., “Is the number even?”).",
+Undecidable Problem,A problem for which no algorithm can be constructed that is always capable of providing a correct yes-or-no answer.,
+Computing Device,A physical artifact that can run a program.,
+Computing System,A group of computing devices and programs working together for a common purpose.,
+Network,A group of interconnected computing devices capable of sending or receiving data.,
+Routing,The process of finding a path from sender to receiver.,
+Bandwidth,The maximum amount of data that can be sent in a computer network in a fixed amount of time.,
+The Internet,"A computer network consisting of interconnected networks that use standardized, open (non-proprietary) communication protocols.",
+A protocol,An agreed-upon set of rules that specify the behavior of a system.,
+scalability,The _________ of a system is the capacity for the system to change in size and grow to meet new demands.,
+Packets,"Data streams contain chunks of data, which are encapsulated in ________.",
+TCP,A protocol that ensures all information is delivered.,
+UDP,A protocol that ensures information is delivered quickly. No checks are made to ensure everything arrives. ,
+World Wide Web,"A system of linked pages, programs, and files.",
+HTTP - HyperText Transfer Protocol,A protocol used by the World Wide Web.,
+Redundancy,The inclusion of extra components that can be used to mitigate failure of a system if other components fail.,
+Fault-tolerant,"When a system can support failures and still continue to function, it is called _____________.",
+Sequential Computing,A computational model in which operations are performed in order one at a time.,
+Parallel Computing,"A computational model where the program is broken into multiple smaller sequential computing operations, some of which are performed simultaneously.",
+Distributed Computing,A computational model in which multiple devices are used to run a program.,
