@@ -57,17 +57,17 @@ Continue,Rejects all the remaining statements in the current iteration of the lo
 Argument,A variable passed as a value to a function,x
 Return,"Exits a function, optionally passing back an expression to the caller.",x
 Scope,The region of code where a variable or function is accessible and can be used,
-Namespaces,The collection of variable names that exist at a certain point in your code.,
-Exceptions,"Runtime errors in a program. By default, they stop the program.",
-Try and Except,Programming constructs that can be used to gracefully handle exceptions so that a program can continue in spite of them.,
+Namespaces,The collection of variable names that exist at a certain point in your code.,x
+Exceptions,"Runtime errors in a program. By default, they stop the program.",x
+Try and Except,Programming constructs that can be used to gracefully handle exceptions so that a program can continue in spite of them.,x
 Standard Library,"The baseline, plain version of the programming language. It has the built-in functions that you use.",
 Local variable,A variable that is restricted to use in a certain scope of a program,x
-Immutable,"Unable to change. Strings are examples of this - if you strip or concatenate a string, it is a brand new String.",
-Data Structure,A particular way of organizing data in our programs.,
-Tuple,"A heterogenous, immutable data type that stores an ordered sequence of things.",
+Immutable,"Unable to change. Strings are examples of this - if you strip or concatenate a string, it is a brand new String.",x
+Data Structure,A particular way of organizing data in our programs.,x
+Tuple,"A heterogenous, immutable data type that stores an ordered sequence of things.",x
 Heterogeneous,"The items stored can be of any type: numeric, string, boolean, etc.",
 List,"A heterogenous, mutable data type that stores an ordered sequence of things.",x
-Mutable,When something is changeable or has the ability to change.,
+Mutable,When something is changeable or has the ability to change.,x
 join(),A method that takes all items in a collection and joins them into one string,x
 List Indexing,Accessing certain elements in a list,
 count(),A method that counts occurrences of specific items in a list.,
@@ -76,11 +76,11 @@ extend(),Takes a list as an argument and extends the current list with the list 
 sort(),Sorts the list in ascending order by default.,
 reverse(),Reverses the sorting order of the elements.,
 remove(),Removes the first occurrence of the element with the specified value.,
-Simulation,"A animated model that represents a real-life thing, process, or situation.",
+Simulation,"A animated model that represents a real-life thing, process, or situation.",x
 Model,A set of rules for how things interact within a simulation.,
 Digital Information,"Data that is created by, or prepared for, electronic systems and devices such as computers, screens, calculators, communication devices and so on.",
 Number System,"Defines which digits we can use, and what value each position (place value) in a number has.",
-Number Base,"Defines how many digits are in the number system, and the base of the exponent for each place value in a number.",
+Number Base,"Defines how many digits are in the number system, and the base of the exponent for each place value in a number.",x
 Decimal Number System,"The number system we use in out everyday lives. It has 10 digits, 0-9.",x
 Binary Number System,"Number system that has 2 digits, 0 and 1. This is how computers represent numbers at the base level.",x
 Bit,Short for binary digit. A single digit in a binary number. Can either be 0 or 1.,x
@@ -101,19 +101,19 @@ Public Key Encryption,A type of asymmetric key encryption. There’s one key that 
 Key (cyber),A shared secret that allows the recipient to convert ciphertext into plaintext.,
 Decryption,The conversion of encrypted data into its original form.,
 Steganography,The art and science of concealing secret messages in such a way that no one apart from the intended recipient knows about the existence of the message.,
-Internet,"A network of networks built on open, agreed upon protocols.",
-Protocol,A widely agreed upon set of rules that standardize communication between machines.,
-Network,A group of two or more computer systems linked together.,
+Internet,"A network of networks built on open, agreed upon protocols.",x
+Protocol,A widely agreed upon set of rules that standardize communication between machines.,x
+Network,A group of two or more computer systems linked together.,x
 Bitrate,The amount of data (in bits) that can be sent in a fixed amount of time.,
-Bandwidth,The capacity of data transfer in a system. Measured by bitrate.,
-Latency,The time it takes for a bit to travel from sender to receiver.,
+Bandwidth,The capacity of data transfer in a system. Measured by bitrate.,x
+Latency,The time it takes for a bit to travel from sender to receiver.,x
 Network Device,An electronic device which is required for communication between devices.,
 Input Devices,Input devices are computing devices that are used to take in information from a user or another device.,
 Output Devices,Output devices are computing devices that are used to send computer data to the user.,
 Storage Devices,Computing devices that remember information.,
-Computing Systems,A group of computing devices and programs working together for a common purpose.,
+Computing Systems,A group of computing devices and programs working together for a common purpose.,x
 Computer Network,A group of interconnected computing devices capable of sending or receiving data.,
-Internet Protocol (IP),A protocol that defines the structure of an Internet address and assigns a unique address to every device on the Internet.,
+Internet Protocol (IP),A protocol that defines the structure of an Internet address and assigns a unique address to every device on the Internet.,x
 IPv6,,
 URL,,
 HTTP Request,,
@@ -147,8 +147,8 @@ Investigating and reflecting,The first stage of the development cycle - user req
 Designing,"The second stage of the development cycle - storyboards, user profiles, and planning program components happen in this stage.",x
 Prototyping,The third stage of the development cycle - wireframes and simple versions of the final application are created.,x
 Testing,The fourth stage of the development cycle - prototypes are provided to users. Usability is checked for different parts of the program. ,x
-Documentation,This helps in developing and maintaining correct programs when working individually or in collaborative programming environments.,
-Inputs,"These are sent to programs in a variety of forms, such as tactile, audio, visual, or text.",
+Documentation,This helps in developing and maintaining correct programs when working individually or in collaborative programming environments.,x
+Inputs,"These are sent to programs in a variety of forms, such as tactile, audio, visual, or text.",x
 Events,"These can be generated when a key is pressed, a mouse is clicked, a program is started, or any other defined action occurs that affects the flow of execution.",
 Bits, Computing devices represent data digitally. The lowest-level components of any value are called _____,x
 Byte,8 bits is called a ____,x
@@ -167,7 +167,7 @@ Lossy Data Compression,This process can significantly reduce the number of bits 
 Data,"Companies, governments, and other organizations analyze this to identify trends, make connections, and address
 problems.",
 Causal relationship,A correlation found in data does not necessarily indicate that a _______   ___________exists,
-Metadata,"Data about data. For example, the date an image was created.",
+Metadata,"Data about data. For example, the date an image was created.",x
 Cleaning Data,"A process that makes the data uniform without changing their meaning (e.g., replacing all equivalent abbreviations, spellings, and capitalization with the same word).",
 Spreadsheets,Programs such as these help efficiently organize and find trends in information.,
 Binary Search Algorithm,This algorithm starts at the middle of a sorted data set of numbers and eliminates half of the data; this process repeats until the desired value is found or all elements have been eliminated.,
@@ -186,15 +186,15 @@ Network,A group of interconnected computing devices capable of sending or receiv
 Routing,The process of finding a path from sender to receiver.,
 Bandwidth,The maximum amount of data that can be sent in a computer network in a fixed amount of time.,
 The Internet,"A computer network consisting of interconnected networks that use standardized, open (non-proprietary) communication protocols.",
-A protocol,An agreed-upon set of rules that specify the behavior of a system.,
-scalability,The _________ of a system is the capacity for the system to change in size and grow to meet new demands.,
-Packets,"Data streams contain chunks of data, which are encapsulated in ________.",
-TCP,A protocol that ensures all information is delivered.,
-UDP,A protocol that ensures information is delivered quickly. No checks are made to ensure everything arrives. ,
-World Wide Web,"A system of linked pages, programs, and files.",
-HTTP - HyperText Transfer Protocol,A protocol used by the World Wide Web.,
-Redundancy,The inclusion of extra components that can be used to mitigate failure of a system if other components fail.,
+A protocol,An agreed-upon set of rules that specify the behavior of a system.,x
+scalability,The _________ of a system is the capacity for the system to change in size and grow to meet new demands.,x
+Packets,"Data streams contain chunks of data, which are encapsulated in ________.",x
+TCP,A protocol that ensures all information is delivered.,x
+UDP,A protocol that ensures information is delivered quickly. No checks are made to ensure everything arrives. ,x
+World Wide Web,"A system of linked pages, programs, and files.",x
+HTTP - HyperText Transfer Protocol,A protocol used by the World Wide Web.,x
+Redundancy,The inclusion of extra components that can be used to mitigate failure of a system if other components fail.,x
 Fault-tolerant,"When a system can support failures and still continue to function, it is called _____________.",
-Sequential Computing,A computational model in which operations are performed in order one at a time.,
-Parallel Computing,"A computational model where the program is broken into multiple smaller sequential computing operations, some of which are performed simultaneously.",
-Distributed Computing,A computational model in which multiple devices are used to run a program.,
+Sequential Computing,A computational model in which operations are performed in order one at a time.,x
+Parallel Computing,"A computational model where the program is broken into multiple smaller sequential computing operations, some of which are performed simultaneously.",x
+Distributed Computing,A computational model in which multiple devices are used to run a program.,x
