@@ -1,5 +1,5 @@
 Word/Phrase,Definition,Include
-Cybercrime,"Identity theft, stealing money, stealing private information, controlling private computers.",
+Cybercrime,"Identity theft, stealing money, stealing private information, controlling private computers.",x
 Moore's Law,An observation that the processing speed of computers is doubling every year. This is exponential growth. Computers are getting smaller and faster at an exponential rate.,
 Computer Science,"The study of computational thinking, the thinking humans need to in order to describe a step by step process to a computer.",
 Procedure Body,The part of a function that contains the commands,x
@@ -23,7 +23,7 @@ If Else Statement,Control structure that lets us run either one section of code 
 While Loop,Lets us repeat code as long as something is true.,x
 Control Structure,The management and changing of the flow of our code.,
 Bug,A problem in your code that needs to be fixed.,x
-Debugging,Fixing a problem in your code.,
+Debugging,Fixing a problem in your code.,x
 Pseudocode,A brief explanation of code in plain English.,
 Algorithm,A set of steps or rules to follow to solve a particular problem.,x
 Sequencing,Step by step execution of instructions in the order they are given.,x
@@ -90,17 +90,17 @@ Pixel,"Images are made up of these, which are essentially a grid of values. Each
 Hexadecimal,Base 16 number system. It is a number system that only uses 16 digits (0 1 2 3 4 5 6 7 8 9 A B C D E F),x
 RGB Color Encoding,"Defines the amount of Red, Green, and Blue light in a pixel.",
 Image filter,A procedure that applies a particular function to an image’s pixels to change its appearance,
-Data Compression,"The process of encoding information, using fewer bits than the original representation.",
-Lossless Compression,"Reducing the size of a file without loss of information. If data have been compressed this way, the original data can be recovered.",
-Lossy Compression,Throwing away some of the data to save space. We can throw away a lot of data without any noticeable difference from the original.,
+Data Compression,"The process of encoding information, using fewer bits than the original representation.",x
+Lossless Compression,"Reducing the size of a file without loss of information. If data have been compressed this way, the original data can be recovered.",x
+Lossy Compression,Throwing away some of the data to save space. We can throw away a lot of data without any noticeable difference from the original.,x
 Cryptography,"Scrambling digital information into an unreadable form. Only those with verified authority (password, key, etc) can unscramble it to read it.",
-Caesar Cipher,"An encryption method in which each letter of the message is shifted by a certain amount, called the key",
-Symmetric Encryption,"The same key is used to encrypt and decrypt (e.g., Caesar, Vigenere)",
-Asymmetric Encryption,"One key encrypts, a different key decrypts.",
-Public Key Encryption,A type of asymmetric key encryption. There’s one key that encrypts the information and there is a different key that decrypts the information.,
-Key (cyber),A shared secret that allows the recipient to convert ciphertext into plaintext.,
-Decryption,The conversion of encrypted data into its original form.,
-Steganography,The art and science of concealing secret messages in such a way that no one apart from the intended recipient knows about the existence of the message.,
+Caesar Cipher,"An encryption method in which each letter of the message is shifted by a certain amount, called the key",x
+Symmetric Encryption,"The same key is used to encrypt and decrypt (e.g., Caesar, Vigenere)",x
+Asymmetric Encryption,"One key encrypts, a different key decrypts.",x
+Public Key Encryption,A type of asymmetric key encryption. There’s one key that encrypts the information and there is a different key that decrypts the information.,x
+Key (cyber),A shared secret that allows the recipient to convert ciphertext into plaintext.,x
+Decryption,The conversion of encrypted data into its original form.,x
+Steganography,The art and science of concealing secret messages in such a way that no one apart from the intended recipient knows about the existence of the message.,x
 Internet,"A network of networks built on open, agreed upon protocols.",x
 Protocol,A widely agreed upon set of rules that standardize communication between machines.,x
 Network,A group of two or more computer systems linked together.,x
@@ -161,31 +161,31 @@ Sampling, When we want to represent analog data digitally we can use a technique
 double,Adding one extra bit will give us _________ the amount of values we had available before.,
 2^5,32 represent as a power of 2.,x
 0-F,"The values where hexadecimal numbers start and end (starts at __, ends at __)",
-Data Compression,This process can reduce the size (number of bits) of transmitted or stored data.,
-Lossless Data Compression,This process can usually reduce the number of bits stored or transmitted while guaranteeing complete reconstruction of the original data.,
-Lossy Data Compression,This process can significantly reduce the number of bits stored or transmitted but only allow reconstruction of an approximation of the original data.,
+Data Compression,This process can reduce the size (number of bits) of transmitted or stored data.,x
+Lossless Data Compression,This process can usually reduce the number of bits stored or transmitted while guaranteeing complete reconstruction of the original data.,x
+Lossy Data Compression,This process can significantly reduce the number of bits stored or transmitted but only allow reconstruction of an approximation of the original data.,x
 Data,"Companies, governments, and other organizations analyze this to identify trends, make connections, and address
 problems.",
 Causal relationship,A correlation found in data does not necessarily indicate that a _______   ___________exists,
 Metadata,"Data about data. For example, the date an image was created.",x
 Cleaning Data,"A process that makes the data uniform without changing their meaning (e.g., replacing all equivalent abbreviations, spellings, and capitalization with the same word).",
 Spreadsheets,Programs such as these help efficiently organize and find trends in information.,
-Binary Search Algorithm,This algorithm starts at the middle of a sorted data set of numbers and eliminates half of the data; this process repeats until the desired value is found or all elements have been eliminated.,
-Sorted,"In a binary search algorithm, data must be _______",
-Linear or Sequential,An algorithm that searches through data one-by-one is called a _______ search.,
-Documentation,"In order to understand how to use a library or API, we often have to read the __________ that comes with it. ",
-Decision,A kind of problem that has a yes or no answer is a called a ________ problem,
-Optimization,A kind of problem where the goal is to find the best solution among many is called a ________ problem,
+Binary Search Algorithm,This algorithm starts at the middle of a sorted data set of numbers and eliminates half of the data; this process repeats until the desired value is found or all elements have been eliminated.,x
+Sorted,"In a binary search algorithm, data must be _______",x
+Linear or Sequential,An algorithm that searches through data one-by-one is called a _______ search.,x
+Documentation,"In order to understand how to use a library or API, we often have to read the __________ that comes with it. ",x
+Decision,A kind of problem that has a yes or no answer is a called a ________ problem,x
+Optimization,A kind of problem where the goal is to find the best solution among many is called a ________ problem,x
 Polynomial,"Algorithms with a __________  efficiency or slower (constant, linear, square, cube, etc.) are said to run in a reasonable amount of time",
 "Exponential, Factorial",Algorithms with _________ or _________ efficiencies are examples of algorithms that run in an unreasonable amount of time.,
 Decidable Problem,"A decision problem for which an algorithm can be written to produce a correct output for all inputs (e.g., “Is the number even?”).",
 Undecidable Problem,A problem for which no algorithm can be constructed that is always capable of providing a correct yes-or-no answer.,
-Computing Device,A physical artifact that can run a program.,
+Computing Device,A physical artifact that can run a program.,x
 Computing System,A group of computing devices and programs working together for a common purpose.,
-Network,A group of interconnected computing devices capable of sending or receiving data.,
-Routing,The process of finding a path from sender to receiver.,
-Bandwidth,The maximum amount of data that can be sent in a computer network in a fixed amount of time.,
-The Internet,"A computer network consisting of interconnected networks that use standardized, open (non-proprietary) communication protocols.",
+Network,A group of interconnected computing devices capable of sending or receiving data.,x
+Routing,The process of finding a path from sender to receiver.,x
+Bandwidth,The maximum amount of data that can be sent in a computer network in a fixed amount of time.,x
+The Internet,"A computer network consisting of interconnected networks that use standardized, open (non-proprietary) communication protocols.",x
 A protocol,An agreed-upon set of rules that specify the behavior of a system.,x
 scalability,The _________ of a system is the capacity for the system to change in size and grow to meet new demands.,x
 Packets,"Data streams contain chunks of data, which are encapsulated in ________.",x
@@ -194,7 +194,7 @@ UDP,A protocol that ensures information is delivered quickly. No checks are made
 World Wide Web,"A system of linked pages, programs, and files.",x
 HTTP - HyperText Transfer Protocol,A protocol used by the World Wide Web.,x
 Redundancy,The inclusion of extra components that can be used to mitigate failure of a system if other components fail.,x
-Fault-tolerant,"When a system can support failures and still continue to function, it is called _____________.",
+Fault-tolerant,"When a system can support failures and still continue to function, it is called _____________.",x
 Sequential Computing,A computational model in which operations are performed in order one at a time.,x
 Parallel Computing,"A computational model where the program is broken into multiple smaller sequential computing operations, some of which are performed simultaneously.",x
 Distributed Computing,A computational model in which multiple devices are used to run a program.,x
