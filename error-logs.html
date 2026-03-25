@@ -82,18 +82,36 @@
 
         // AUTH LOGIC
         async function handleLogin() {
-            const id = document.getElementById('student-id').value;
-            const pass = document.getElementById('passphrase').value;
+            // 1. Get what the student typed into the boxes
+            const typedID = document.getElementById('student-id').value.trim();
+            const typedPass = document.getElementById('passphrase').value.trim();
 
-            // Simple verification against a 'users' collection
-            const userDoc = await db.collection('users').doc(id).get();
-            if (userDoc.exists && userDoc.data().passphrase === pass) {
-                currentStudentId = id;
-                document.getElementById('login-screen').classList.add('hidden');
-                document.getElementById('main-app').classList.remove('hidden');
-                loadLogs();
-            } else {
-                alert("Invalid ID or Passphrase");
+            try {
+                // 2. Look for a DOCUMENT in the 'users' collection named exactly what they typed
+                const userDoc = await db.collection('users').doc(typedID).get();
+
+                if (userDoc.exists) {
+                    const userData = userDoc.data();
+                    
+                    // 3. Check if the 'passphrase' FIELD matches what they typed
+                    if (userData.passphrase === typedPass) {
+                        currentStudentId = typedID;
+                        
+                        // Success! Hide login, show app
+                        document.getElementById('login-screen').classList.add('hidden');
+                        document.getElementById('main-app').classList.remove('hidden');
+                        
+                        console.log("Welcome, " + userData.name);
+                        loadLogs(); // Refresh their history
+                    } else {
+                        alert("Incorrect Passphrase. Try again!");
+                    }
+                } else {
+                    alert("Student ID not found. Did you type it correctly?");
+                }
+            } catch (error) {
+                console.error("Error logging in: ", error);
+                alert("Connection error. Check the console (F12).");
             }
         }
 
