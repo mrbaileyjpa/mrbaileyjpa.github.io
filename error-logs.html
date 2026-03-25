@@ -24,6 +24,7 @@
         <header class="flex justify-between items-center mb-8">
             <h2 class="text-2xl font-bold text-gray-800">Your Reflection History</h2>
             <button onclick="toggleView('form')" class="bg-green-600 text-white px-4 py-2 rounded shadow">+ New Log</button>
+            <button onclick="handleLogout()" class="text-red-600 underline text-sm">Log Out</button>
         </header>
 
         <div id="list-view" class="space-y-4">
@@ -77,6 +78,22 @@
 
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
+        // AUTO-LOGIN CHECK
+        window.onload = function() {
+            const savedId = localStorage.getItem('loggedInStudentId');
+            if (savedId) {
+                currentStudentId = savedId;
+                // Skip the login screen
+                document.getElementById('login-screen').classList.add('hidden');
+                document.getElementById('main-app').classList.remove('hidden');
+                loadLogs();
+            }
+        };
+
+        function handleLogout() {
+            localStorage.removeItem('loggedInStudentId');
+            location.reload(); // Refresh the page to show the login screen
+        }
 
         let currentStudentId = "";
 
@@ -95,6 +112,8 @@
                     
                     // 3. Check if the 'passphrase' FIELD matches what they typed
                     if (userData.passphrase === typedPass) {
+                        // Store the ID so they stay logged in
+                        localStorage.setItem('loggedInStudentId', typedID);
                         currentStudentId = typedID;
                         
                         // Success! Hide login, show app
