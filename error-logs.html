@@ -70,12 +70,10 @@
         storageBucket: "reflection-log-3d328.firebasestorage.app",
         messagingSenderId: "865378468498",
         appId: "1:865378468498:web:98c9ff8b919dc3b1575c4b",
-        measurementId: "G-1T1333RLS5"
         };
 
         // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+        const app = firebase.initializeApp(firebaseConfig);
 
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
