@@ -43,13 +43,13 @@
                 </select>
 
                 <label class="block mb-2 font-semibold">Why did you get this right/wrong? (Reflection)</label>
-                <textarea id="logic" required class="w-full p-2 mb-4 border rounded h-24" placeholder="Explain your thought process..."></textarea>
+                <textarea id="logic" required class="w-full p-2 mb-4 border rounded h-24" placeholder=""></textarea>
 
-                <label class="block mb-2 font-semibold">The "Future-Proof" Plan</label>
-                <textarea id="fix" required class="w-full p-2 mb-4 border rounded h-24" placeholder="What will you keep in mind next time?"></textarea>
+                <label class="block mb-2 font-semibold">Which wrong answer was the most tempting and how did you avoid it?</label>
+                <textarea id="trap" required class="w-full p-2 mb-6 border rounded h-24" placeholder=""></textarea>
 
-                <label class="block mb-2 font-semibold">The "Smartest" Trap</label>
-                <textarea id="trap" required class="w-full p-2 mb-6 border rounded h-24" placeholder="Which wrong answer was the most tempting and how did you avoid it?"></textarea>
+                <label class="block mb-2 font-semibold">What is something important to keep in mind next time?</label>
+                <textarea id="fix" required class="w-full p-2 mb-4 border rounded h-24" placeholder=""></textarea>
 
                 <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded font-bold hover:bg-blue-700">Submit Reflection</button>
             </form>
@@ -162,7 +162,8 @@
                             <span class="font-bold text-sm text-gray-500">${dateString}</span>
                             <span class="font-black text-xs">${data.difficulty}</span>
                         </div>
-                        <p class="text-gray-800 mb-2"><strong>The Trap:</strong> ${data.trap}</p>
+                        <p class="text-gray-800 mb-2"><strong>What I got right/wrong:</strong> ${data.logic}</p>
+                        <p class="text-gray-800 mb-2"><strong>Tempting answer:</strong> ${data.trap}</p>
                         <p class="text-gray-600 italic text-sm">"Next time, I will ${data.fix}"</p>
                     </div>
                 `;
