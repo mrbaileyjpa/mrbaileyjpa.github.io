@@ -25,7 +25,6 @@
             <h2 class="text-2xl font-bold text-gray-800">Your Reflection History</h2>
             <button onclick="toggleView('form')" class="bg-green-600 text-white px-4 py-2 rounded shadow">+ New Log</button>
             <button onclick="handleLogout()" class="text-red-600 underline text-sm">Log Out</button>
-            <button onclick="exportToCSV()" class="text-red-600 underline text-sm">Download CSV</button>
         </header>
 
         <div id="list-view" class="space-y-4">
@@ -176,47 +175,6 @@
             if (diff === 'MODERATE') return 'border-yellow-500';
             return 'border-red-500';
         }
-
-        async function exportToCSV() {
-            const adminPass = prompt("Enter Admin Password:");
-            if (adminPass === "admin123") {
-                try {
-                    // 1. Get ALL logs from the collection
-                    const snapshot = await db.collection('logs').orderBy('date', 'desc').get();
-                    
-                    if (snapshot.empty) {
-                        alert("No logs found to export!");
-                        return;
-                    }
-            
-                    // 2. Define the CSV Header
-                    let csvContent = "data:text/csv;charset=utf-8,Student ID,Date,Reflection\n";
-            
-                    // 3. Loop through every log and add a row
-                    snapshot.forEach(doc => {
-                        const data = doc.data();
-                        // Clean up text to avoid breaking CSV format (remove commas/newlines)
-                        const cleanReflection = data.text.replace(/,/g, " ").replace(/\n/g, " ");
-                        const row = `${data.studentId},${data.date},${cleanReflection}\n`;
-                        csvContent += row;
-                    });
-            
-                    // 4. Create a "Hidden Link" to trigger the download
-                    const encodedUri = encodeURI(csvContent);
-                    const link = document.createElement("a");
-                    link.setAttribute("href", encodedUri);
-                    link.setAttribute("download", "student_reflections_export.csv");
-                    document.body.appendChild(link);
-            
-                    link.click(); // This starts the download
-                    document.body.removeChild(link);
-            
-                } catch (error) {
-                    console.error("Export failed:", error);
-                    alert("Check console: " + error.message);
-                    }
-                }
-            }
 
         // SUBMIT LOG
         document.getElementById('log-form').addEventListener('submit', async (e) => {
