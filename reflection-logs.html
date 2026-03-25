@@ -18,6 +18,9 @@
             <input type="password" id="passphrase" placeholder="Passphrase" class="w-full p-2 mb-6 border rounded">
             <button onclick="handleLogin()" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
         </div>
+        <div id="admin-controls" class="p-10 text-center">
+            <button onclick="exportToCSV()" class="bg-green-600 text-white p-4 rounded">Download CSV</button>
+        </div>
     </div>
 
     <div id="main-app" class="hidden max-w-4xl mx-auto p-6">
@@ -53,9 +56,6 @@
 
                 <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded font-bold hover:bg-blue-700">Submit Reflection</button>
             </form>
-            <div id="admin-controls" class="p-10 text-center">
-                <button onclick="exportToCSV()" class="bg-green-600 text-white p-4 rounded">Download CSV</button>
-            </div>
         </div>
 
     </div>
