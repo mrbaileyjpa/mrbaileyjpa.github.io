@@ -129,28 +129,41 @@
             
             if (!studentId) return;
         
-            feed.innerHTML = `<div class="text-center py-10 text-blue-600">Loading ${studentId}'s notebook...</div>`;
+            feed.innerHTML = `<div class="text-center py-10 text-blue-600 font-bold">Searching ${studentId}'s Notebook...</div>`;
         
             try {
-                // CHANGED PATH: We go into 'logs', then the Student ID, then the sub-collection
-                // Replace 'entries' with whatever your sub-collection is actually named
+                // 1. CHOOSE THE CORRECT NAME
+                // Go to Firebase Console -> logs -> 001. What is the name of the collection inside?
+                const subName = "entries"; // <--- DOUBLE CHECK THIS NAME IN FIREBASE
+        
                 const snapshot = await db.collection('logs')
                     .doc(studentId)
-                    .collection('entries') 
+                    .collection(subName) 
                     .orderBy('date', 'desc')
                     .get();
         
-                currentLogs = snapshot.docs.map(doc => doc.data());
+                if (snapshot.empty) {
+                    console.log(`No data found in: logs > ${studentId} > ${subName}`);
+                    feed.innerHTML = `
+                        <div class="text-center py-10 bg-orange-50 border border-orange-200 rounded-lg">
+                            <p class="text-orange-700 font-bold">No logs found in '${subName}'</p>
+                            <p class="text-xs text-orange-600 mt-2">Check if the sub-collection in Firebase is actually named '${subName}'</p>
+                        </div>`;
+                    return;
+                }
+        
+                // 2. Map the data and log it to the console
+                currentLogs = snapshot.docs.map(doc => {
+                    const data = doc.data();
+                    console.log("SUCCESS! Found Raw Data:", data); 
+                    return data;
+                });
                 
-                console.log("Found logs:", currentLogs); // Check your console to see the data
                 renderLogs();
                 
             } catch (error) {
-                console.error("Error:", error);
-                feed.innerHTML = `<div class="bg-red-50 p-4 text-red-700 rounded">
-                    Check the sub-collection name in your code. <br>
-                    Current path: logs -> ${studentId} -> entries
-                </div>`;
+                console.error("Fetch Error:", error);
+                feed.innerHTML = `<div class="p-4 bg-red-100 text-red-700">Error: ${error.message}</div>`;
             }
         }
 
