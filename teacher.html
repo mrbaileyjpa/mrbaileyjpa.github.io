@@ -128,23 +128,28 @@
             const feed = document.getElementById('log-feed');
             
             if (!studentId) return;
-
-            feed.innerHTML = `<div class="text-center py-10">Fetching logs for ${studentId}...</div>`;
-
+        
+            feed.innerHTML = `<div class="text-center py-10 text-blue-600">Loading ${studentId}'s notebook...</div>`;
+        
             try {
-                // IMPORTANT: This query requires a Composite Index in Firestore
+                // CHANGED PATH: We go into 'logs', then the Student ID, then the sub-collection
+                // Replace 'entries' with whatever your sub-collection is actually named
                 const snapshot = await db.collection('logs')
-                    .where('studentId', '==', studentId)
+                    .doc(studentId)
+                    .collection('entries') 
                     .orderBy('date', 'desc')
                     .get();
-
+        
                 currentLogs = snapshot.docs.map(doc => doc.data());
+                
+                console.log("Found logs:", currentLogs); // Check your console to see the data
                 renderLogs();
+                
             } catch (error) {
-                console.error("Error fetching logs:", error);
-                feed.innerHTML = `<div class="bg-red-50 p-4 rounded text-red-700 text-sm">
-                    <strong>Query Error:</strong> ${error.message}<br><br>
-                    If this is a "requires an index" error, click the link in your Browser Console (F12) to fix it.
+                console.error("Error:", error);
+                feed.innerHTML = `<div class="bg-red-50 p-4 text-red-700 rounded">
+                    Check the sub-collection name in your code. <br>
+                    Current path: logs -> ${studentId} -> entries
                 </div>`;
             }
         }
