@@ -141,41 +141,79 @@
         // 4. RENDER LOGS WITH DATE DIVIDERS
         function renderLogs() {
             const feed = document.getElementById('log-feed');
-            const start = document.getElementById('start-date').value;
-            const end = document.getElementById('end-date').value;
-            feed.innerHTML = "";
-
-            let lastDate = null;
-
-            // Apply date filters
+            const start = document.getElementById('start-date').value; // YYYY-MM-DD from input
+            const end = document.getElementById('end-date').value;     // YYYY-MM-DD from input
+            
+            feed.innerHTML = ""; // Clear the feed before re-drawing
+            let lastDateLabel = null;
+        
+            // 1. Filter the logs based on the Date Picker inputs
             const filtered = currentLogs.filter(log => {
-                const matchStart = start ? log.date >= start : true;
-                const matchEnd = end ? log.date <= end : true;
+                let logDateString = "";
+                
+                // Convert Firestore Timestamp to YYYY-MM-DD for comparison
+                if (log.date && typeof log.date.toDate === 'function') {
+                    logDateString = log.date.toDate().toISOString().split('T')[0];
+                } else {
+                    logDateString = log.date; // already a string
+                }
+        
+                const matchStart = start ? logDateString >= start : true;
+                const matchEnd = end ? logDateString <= end : true;
                 return matchStart && matchEnd;
             });
-
+        
             if (filtered.length === 0) {
-                feed.innerHTML = "<div class='text-center py-10 text-gray-400'>No logs found for this period.</div>";
+                feed.innerHTML = "<div class='text-center py-10 text-gray-400 italic font-medium'>No reflections found for this period.</div>";
                 return;
             }
-
+        
+            // 2. Loop through and draw the logs
             filtered.forEach(log => {
-                // Draw a Divider if the date changes
-                if (log.date !== lastDate) {
+                let dateLabel = "Unknown Date";
+                let timeLabel = "";
+        
+                // Handle the Firestore Timestamp Conversion
+                if (log.date && typeof log.date.toDate === 'function') {
+                    const d = log.date.toDate();
+                    
+                    // Format for the Divider: e.g., "Tuesday, 31 March 2026"
+                    dateLabel = d.toLocaleDateString('en-GB', { 
+                        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+                    });
+                    
+                    // Format for the card: e.g., "15:30"
+                    timeLabel = d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+                } else {
+                    // Fallback if the date is just a string
+                    dateLabel = log.date;
+                }
+        
+                // 3. Draw a Daily Divider only if the date has changed
+                if (dateLabel !== lastDateLabel) {
                     feed.innerHTML += `
-                        <div class="flex items-center my-8">
-                            <div class="flex-grow border-t-2 border-gray-900"></div>
-                            <span class="mx-4 text-gray-900 font-bold text-xs uppercase tracking-widest">${log.date}</span>
-                            <div class="flex-grow border-t-2 border-gray-900"></div>
+                        <div class="flex items-center mt-12 mb-6">
+                            <div class="flex-grow border-t-2 border-gray-800"></div>
+                            <span class="mx-4 text-gray-900 font-black text-xs uppercase tracking-widest bg-gray-200 px-4 py-1.5 rounded-full border border-gray-300 shadow-sm">
+                                ${dateLabel}
+                            </span>
+                            <div class="flex-grow border-t-2 border-gray-800"></div>
                         </div>
                     `;
-                    lastDate = log.date;
+                    lastDateLabel = dateLabel;
                 }
-
-                // The Reflection Card
+        
+                // 4. The Individual Reflection Card
                 feed.innerHTML += `
-                    <div class="bg-white p-5 rounded-lg border-l-8 border-blue-600 shadow-sm mb-4">
-                        <p class="text-gray-800 text-lg leading-relaxed">${log.text}</p>
+                    <div class="bg-white p-6 rounded-xl border-l-8 border-blue-600 shadow-sm mb-4 hover:shadow-md transition-all duration-200">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-[10px] font-black text-blue-700 uppercase tracking-widest bg-blue-50 px-2 py-0.5 rounded">
+                                Logged at ${timeLabel || 'N/A'}
+                            </span>
+                        </div>
+                        <p class="text-gray-800 text-lg leading-relaxed font-medium antialiased">
+                            ${log.text}
+                        </p>
                     </div>
                 `;
             });
