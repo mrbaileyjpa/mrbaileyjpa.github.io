@@ -3,176 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albert Reflection Log</title>
+    <title>Teacher Dashboard - Reflection Logs</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 </head>
-<div id="admin-dashboard" class="hidden max-w-5xl mx-auto bg-white p-6 rounded-xl shadow-lg mt-10">
-    <div class="flex justify-between items-center mb-8 border-b pb-4">
-        <h2 class="text-2xl font-bold">Teacher Review Panel</h2>
-        <button onclick="exportToCSV()" class="bg-green-600 text-white px-4 py-2 rounded shadow hover:bg-green-700">📥 Export This Student to CSV</button>
+<body class="bg-gray-100 min-h-screen">
+
+    <div id="admin-login" class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-8 rounded-xl shadow-lg max-w-sm w-full text-center border-t-4 border-blue-600">
+            <h1 class="text-2xl font-bold mb-6 text-gray-800">Teacher Login</h1>
+            <input type="password" id="admin-pass" placeholder="Password" 
+                   class="w-full border p-3 rounded mb-4 focus:ring-2 focus:ring-blue-500 outline-none">
+            <button onclick="checkAdmin()" 
+                    class="w-full bg-blue-600 text-white font-bold py-3 rounded hover:bg-blue-700 transition">
+                Enter Dashboard
+            </button>
+        </div>
     </div>
 
-    <div class="flex flex-wrap gap-4 mb-8 p-4 bg-gray-50 rounded-lg border">
-        <div class="flex-1 min-w-[200px]">
-            <label class="block text-sm font-bold mb-1">Select Student:</label>
-            <select id="student-dropdown" onchange="fetchStudentLogs()" class="w-full p-2 border rounded bg-white">
-                <option value="">-- Loading Students... --</option>
-            </select>
+    <div id="admin-dashboard" class="hidden p-4 md:p-8 max-w-5xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+            <div>
+                <h1 class="text-3xl font-black text-gray-900 tracking-tight">Review Logs</h1>
+                <p class="text-gray-500 text-sm">Select a student to see their history</p>
+            </div>
+            <button onclick="exportToCSV()" 
+                    class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-bold shadow flex items-center gap-2 transition">
+                <span>📥</span> Export to CSV
+            </button>
         </div>
-        <div class="flex-1 min-w-[200px]">
-            <label class="block text-sm font-bold mb-1">Filter by Date (Optional):</label>
-            <div class="flex gap-2">
-                <input type="date" id="start-date" onchange="renderLogs()" class="w-full p-2 border rounded">
-                <input type="date" id="end-date" onchange="renderLogs()" class="w-full p-2 border rounded">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+            <div>
+                <label class="block text-xs font-black uppercase text-gray-400 mb-2">Student Name</label>
+                <select id="student-dropdown" onchange="fetchStudentLogs()" 
+                        class="w-full p-3 border rounded-lg bg-gray-50 font-semibold focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer">
+                    <option value="">-- Loading Students... --</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-black uppercase text-gray-400 mb-2">Date Range (Optional)</label>
+                <div class="flex gap-2">
+                    <input type="date" id="start-date" onchange="renderLogs()" class="w-full p-2 border rounded-lg bg-gray-50">
+                    <input type="date" id="end-date" onchange="renderLogs()" class="w-full p-2 border rounded-lg bg-gray-50">
+                </div>
+            </div>
+        </div>
+
+        <div id="log-feed" class="space-y-6">
+            <div class="text-center py-20 text-gray-400 italic">
+                No student selected. Use the dropdown above.
             </div>
         </div>
     </div>
 
-    <div id="log-feed" class="space-y-4">
-        <p class="text-center text-gray-400 py-10">Select a student above to view their reflections.</p>
-    </div>
-</div>
-
-<script>
-        // --- 1. FIREBASE CONFIG ---
-    const firebaseConfig = {
-        apiKey: "AIzaSyB9CvzJaTN9fY1MswFfSdZHY5iWx7qRR_g",
-        authDomain: "reflection-log-3d328.firebaseapp.com",
-        projectId: "reflection-log-3d328",
-        storageBucket: "reflection-log-3d328.firebasestorage.app",
-        messagingSenderId: "865378468498",
-        appId: "1:865378468498:web:98c9ff8b919dc3b1575c4b",
+    <script>
+        // --- FIREBASE CONFIG (REPLACE WITH YOURS) ---
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
         };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
 
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
-        let currentLogs = [];
+        let currentLogs = []; // Temporary storage for current student logs
 
-    async function checkAdmin() {
-        const pass = document.getElementById('admin-pass').value;
-        if (pass === "Admin123") {
-            document.getElementById('admin-login').classList.add('hidden');
-            document.getElementById('admin-dashboard').classList.remove('hidden');
-            loadStudentList(); // Build the dropdown as soon as you log in
-        } else {
-            alert("Wrong password");
+        // 1. ADMIN AUTH
+        function checkAdmin() {
+            const pass = document.getElementById('admin-pass').value;
+            if (pass === "Admin123") { // CHANGE YOUR PASSWORD HERE
+                document.getElementById('admin-login').classList.add('hidden');
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                loadStudentList();
+            } else {
+                alert("Incorrect Password");
+            }
         }
-    }
 
-    // --- STEP 1: Build the Dropdown from your 'users' collection ---
-    async function loadStudentList() {
-        const dropdown = document.getElementById('student-dropdown');
-        try {
-            const snapshot = await db.collection('users').get();
-            dropdown.innerHTML = '<option value="">-- Select a Student --</option>';
+        // 2. FETCH LIST OF STUDENTS FOR DROPDOWN
+        async function loadStudentList() {
+            const dropdown = document.getElementById('student-dropdown');
+            try {
+                const snapshot = await db.collection('users').get();
+                dropdown.innerHTML = '<option value="">-- Choose a Student --</option>';
+                
+                snapshot.forEach(doc => {
+                    const student = doc.data();
+                    // Using student name and ID for the label
+                    dropdown.innerHTML += `<option value="${doc.id}">${student.name} (ID: ${doc.id})</option>`;
+                });
+            } catch (error) {
+                console.error("Error loading students:", error);
+                dropdown.innerHTML = '<option>Error loading students</option>';
+            }
+        }
+
+        // 3. FETCH LOGS FOR SELECTED STUDENT
+        async function fetchStudentLogs() {
+            const studentId = document.getElementById('student-dropdown').value;
+            const feed = document.getElementById('log-feed');
             
-            snapshot.forEach(doc => {
-                const student = doc.data();
-                // doc.id is the '001', student.name is 'test'
-                dropdown.innerHTML += `<option value="${doc.id}">${student.name} (${doc.id})</option>`;
+            if (!studentId) return;
+
+            feed.innerHTML = `<div class="text-center py-10">Fetching logs for ${studentId}...</div>`;
+
+            try {
+                // IMPORTANT: This query requires a Composite Index in Firestore
+                const snapshot = await db.collection('logs')
+                    .where('studentId', '==', studentId)
+                    .orderBy('date', 'desc')
+                    .get();
+
+                currentLogs = snapshot.docs.map(doc => doc.data());
+                renderLogs();
+            } catch (error) {
+                console.error("Error fetching logs:", error);
+                feed.innerHTML = `<div class="bg-red-50 p-4 rounded text-red-700 text-sm">
+                    <strong>Query Error:</strong> ${error.message}<br><br>
+                    If this is a "requires an index" error, click the link in your Browser Console (F12) to fix it.
+                </div>`;
+            }
+        }
+
+        // 4. RENDER LOGS WITH DATE DIVIDERS
+        function renderLogs() {
+            const feed = document.getElementById('log-feed');
+            const start = document.getElementById('start-date').value;
+            const end = document.getElementById('end-date').value;
+            feed.innerHTML = "";
+
+            let lastDate = null;
+
+            // Apply date filters
+            const filtered = currentLogs.filter(log => {
+                const matchStart = start ? log.date >= start : true;
+                const matchEnd = end ? log.date <= end : true;
+                return matchStart && matchEnd;
             });
-        } catch (e) {
-            console.error("Error loading students:", e);
-        }
-    }
 
-    // --- STEP 2: Fetch Logs for the Selected Student ---
-    async function fetchStudentLogs() {
-        const studentId = document.getElementById('student-dropdown').value;
-        const feed = document.getElementById('log-feed');
-        
-        if (!studentId) return;
-
-        feed.innerHTML = "<p class='text-center'>Loading logs...</p>";
-
-        try {
-            const snapshot = await db.collection('logs')
-                .where('studentId', '==', studentId)
-                .orderBy('date', 'desc')
-                .get();
-
-            currentLogs = snapshot.docs.map(doc => doc.data());
-            renderLogs();
-        } catch (e) {
-            console.error("Error fetching logs:", e);
-            feed.innerHTML = `<p class='text-red-500 text-center'>Error: ${e.message}. <br>Make sure you created the Index I mentioned earlier!</p>`;
-        }
-    }
-
-    // --- STEP 3: Render with Daily Dividers ---
-    function renderLogs() {
-        const feed = document.getElementById('log-feed');
-        const start = document.getElementById('start-date').value;
-        const end = document.getElementById('end-date').value;
-        feed.innerHTML = "";
-
-        let lastDate = null;
-
-        const filtered = currentLogs.filter(log => {
-            const matchStart = start ? log.date >= start : true;
-            const matchEnd = end ? log.date <= end : true;
-            return matchStart && matchEnd;
-        });
-
-        if (filtered.length === 0) {
-            feed.innerHTML = "<p class='text-center text-gray-400'>No logs found for this criteria.</p>";
-            return;
-        }
-
-        filtered.forEach(log => {
-            // Check if we need to draw a date divider
-            if (log.date !== lastDate) {
-                feed.innerHTML += `
-                    <div class="relative flex py-5 items-center">
-                        <div class="flex-grow border-t-2 border-gray-800"></div>
-                        <span class="flex-shrink mx-4 text-gray-800 font-black text-sm uppercase tracking-widest">${log.date}</span>
-                        <div class="flex-grow border-t-2 border-gray-800"></div>
-                    </div>
-                `;
-                lastDate = log.date;
+            if (filtered.length === 0) {
+                feed.innerHTML = "<div class='text-center py-10 text-gray-400'>No logs found for this period.</div>";
+                return;
             }
 
-            // The Log Card
-            feed.innerHTML += `
-                <div class="bg-white border-l-4 border-blue-500 p-4 shadow-sm hover:shadow-md transition mb-2">
-                    <p class="text-gray-800 leading-relaxed">${log.text}</p>
-                </div>
-            `;
-        });
-    }
-
-    // --- STEP 4: Export logic (remains the same but uses 'filtered') ---
-    function exportToCSV() {
-            const filterId = document.getElementById('filter-id').value.toLowerCase();
-            const start = document.getElementById('filter-start').value;
-            const end = document.getElementById('filter-end').value;
-
-            const filtered = allLogs.filter(log => {
-                const matchId = log.studentId.toLowerCase().includes(filterId);
-                const logDate = log.date;
-                const matchStart = start ? logDate >= start : true;
-                const matchEnd = end ? logDate <= end : true;
-                return matchId && matchStart && matchEnd;
-            });
-
-            let csv = "Student ID,Date,Reflection\n";
             filtered.forEach(log => {
-                // Wrap in quotes and handle existing quotes in text
-                const row = `"${log.studentId}","${log.date}","${log.text.replace(/"/g, '""')}"\n`;
-                csv += row;
+                // Draw a Divider if the date changes
+                if (log.date !== lastDate) {
+                    feed.innerHTML += `
+                        <div class="flex items-center my-8">
+                            <div class="flex-grow border-t-2 border-gray-900"></div>
+                            <span class="mx-4 text-gray-900 font-bold text-xs uppercase tracking-widest">${log.date}</span>
+                            <div class="flex-grow border-t-2 border-gray-900"></div>
+                        </div>
+                    `;
+                    lastDate = log.date;
+                }
+
+                // The Reflection Card
+                feed.innerHTML += `
+                    <div class="bg-white p-5 rounded-lg border-l-8 border-blue-600 shadow-sm mb-4">
+                        <p class="text-gray-800 text-lg leading-relaxed">${log.text}</p>
+                    </div>
+                `;
+            });
+        }
+
+        // 5. EXPORT CURRENT VIEW TO CSV
+        function exportToCSV() {
+            const studentId = document.getElementById('student-dropdown').value;
+            if (!studentId || currentLogs.length === 0) {
+                alert("Please select a student with logs first.");
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,Date,Student ID,Reflection\n";
+
+            currentLogs.forEach(log => {
+                // Clean text of quotes and newlines for CSV safety
+                const cleanText = log.text.replace(/"/g, '""').replace(/\n/g, ' ');
+                csvContent += `"${log.date}","${log.studentId}","${cleanText}"\n`;
             });
 
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.setAttribute("download", `Filtered_Logs_${new Date().toISOString().slice(0,10)}.csv`);
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `Logs_${studentId}_${new Date().toLocaleDateString()}.csv`);
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
