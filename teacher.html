@@ -90,21 +90,32 @@
         async function loadStudentList() {
             const dropdown = document.getElementById('student-dropdown');
             try {
-                console.log("Attempting to fetch students...");
+                console.log("Fetching student list...");
                 const snapshot = await db.collection('users').get();
                 
+                // Clear the dropdown and show a default prompt
+                dropdown.innerHTML = '<option value="">-- Choose a Student --</option>';
+                
                 if (snapshot.empty) {
-                    console.warn("Collection 'users' exists but is empty!");
-                    dropdown.innerHTML = '<option>No students found in DB</option>';
+                    console.warn("No documents found in 'users' collection.");
+                    dropdown.innerHTML = '<option>No students found</option>';
                     return;
                 }
         
-                dropdown.innerHTML = '<option value="">-- Choose a Student --</option>';
                 snapshot.forEach(doc => {
                     const student = doc.data();
-                    console.log("Found student:", doc.id, student.name);
-                    dropdown.innerHTML += `<option value="${doc.id}">${student.name || 'Unnamed'} (ID: ${doc.id})</option>`;
+        
+                    // FIX: Only add to the list if the document has a 'name' field
+                    // This filters out any 'ghost' documents or sub-collections
+                    if (student && student.name) {
+                        const option = document.createElement('option');
+                        option.value = doc.id; // The Document ID (e.g., 001)
+                        option.textContent = `${student.name} (ID: ${doc.id})`;
+                        dropdown.appendChild(option);
+                    }
                 });
+        
+                console.log("Dropdown populated successfully.");
             } catch (error) {
                 console.error("Error loading students:", error);
                 dropdown.innerHTML = '<option>Error: Check Permissions</option>';
