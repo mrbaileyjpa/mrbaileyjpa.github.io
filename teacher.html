@@ -90,17 +90,24 @@
         async function loadStudentList() {
             const dropdown = document.getElementById('student-dropdown');
             try {
+                console.log("Attempting to fetch students...");
                 const snapshot = await db.collection('users').get();
-                dropdown.innerHTML = '<option value="">-- Choose a Student --</option>';
                 
+                if (snapshot.empty) {
+                    console.warn("Collection 'users' exists but is empty!");
+                    dropdown.innerHTML = '<option>No students found in DB</option>';
+                    return;
+                }
+        
+                dropdown.innerHTML = '<option value="">-- Choose a Student --</option>';
                 snapshot.forEach(doc => {
                     const student = doc.data();
-                    // Using student name and ID for the label
-                    dropdown.innerHTML += `<option value="${doc.id}">${student.name} (ID: ${doc.id})</option>`;
+                    console.log("Found student:", doc.id, student.name);
+                    dropdown.innerHTML += `<option value="${doc.id}">${student.name || 'Unnamed'} (ID: ${doc.id})</option>`;
                 });
             } catch (error) {
                 console.error("Error loading students:", error);
-                dropdown.innerHTML = '<option>Error loading students</option>';
+                dropdown.innerHTML = '<option>Error: Check Permissions</option>';
             }
         }
 
