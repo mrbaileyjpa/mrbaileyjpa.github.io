@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Science Warmup</title>
+    <style>
+        html {
+            height: 100%;
+            background-image: url("img/background-2.jpg");
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; /* Resize the background image to cover the entire container */
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            text-align: center;
+        }
+        .record {
+            font-size: 60px;
+            text-align: center;
+        }
+        .record-input-box {
+            width: 120px;
+            font-size: 60px;
+            text-align: center;
+        }
+        #record-submit-button {
+            width: 120px;
+            height: 60px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: plum;
+            color: black;
+            font-size: 20px;
+            font-family: 'Noto Sans', sans-serif;
+            text-align: center;
+            font-weight: bold;
+        }
+        #record-submit-button:hover {
+            background-color: palevioletred;
+        }
+        .nav-button {
+            width: 120px;
+            height: 60px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            background-color: darkgray;
+            color: whitesmoke;
+            font-size: 20px;
+            font-family: 'Noto Sans', sans-serif;
+            text-align: center;
+            font-weight: bold;
+        }
+        .nav-button:hover {
+            background-color: grey;
+        }
+        #container {
+            margin-top: 50px;
+        }
+        #record-box {
+            margin-left: 140px;
+            margin-right: 140px;
+            background-color: white;
+            border: solid gray 4px;
+        }
+        .number {
+            font-weight: bolder;
+        }
+
+        @keyframes flash {
+            0% { background-color: gold; }
+            50% { background-color: white; }
+            100% { background-color: gold; }
+        }
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            display: none;
+            background: url('img/celebrate-2.gif') center center no-repeat;
+            background-size: cover;
+        }
+
+        .new-record {
+            font-size: 80px;
+            color: gold;
+            text-align: center;
+            z-index: 9999;
+            position: fixed;
+            top: 40%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        .selected {
+            background-color: #007BFF; /* Change this to your preferred color */
+            color: white;
+        }
+
+        .img-size {
+            width: 700px;  /* replace with your desired width */
+            height: 700px; /* replace with your desired height */
+            object-fit: cover; /* this will ensure that the aspect ratio of the image is maintained */
+        }
+        #select-grade-message {
+            color: white
+        }
+
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDgnjAHmMVToInSmEHFobFsz-RNaV2-1Pk",
+            authDomain: "jpa-optimr.firebaseapp.com",
+            projectId: "jpa-optimr",
+            storageBucket: "jpa-optimr.appspot.com",
+            messagingSenderId: "61256687275",
+            appId: "1:61256687275:web:077fca07b8a4f7f34a61ee",
+            measurementId: "G-7JR2CHGPG9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="fireworks" class="fireworks"></div>
+    <div id="outer-box">
+        <button class="nav-button" id="home-button" onclick="collectRecords('home')">Home</button>
+        <button class="nav-button" id="grade5-button" onclick="collectRecords('grade5')">Grade 5</button>
+        <button class="nav-button" id="grade6-button" onclick="collectRecords('grade6')">Grade 6</button>
+        <div id="container">
+            <div id="record-box">
+                <p class="record">Running Record: <span class="number" id="runningRecord"></span></p>
+                <p class="record"><i class="fas fa-trophy"></i> World Record: <span class="number" id="worldRecord"></span></p>
+                <label class="record" for="result">Today's result:</label>
+                <input class="record-input-box number" type="number" id="result" name="result">
+                <br>
+                <button id="record-submit-button" onclick="checkRecord()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var runningRecord = 0;
+        var worldRecord = 0;
+        var gradeSelected = "";
+        var grade = "";
+
+
+        /* Shows the record-box element. Called when the user clicks Grade5 and Grade6 nav buttons. */
+        function showMessageBox() {
+            var recordBox = document.getElementById('record-box');
+            var message = document.getElementById('select-grade-message');
+            var container = document.getElementById('container');
+            
+            // Show the record box
+            recordBox.style.display = '';
+
+            // If the message exists, remove it
+            if (message) {
+                container.removeChild(message);
+            }
+        }
+
+        /* Hides the record-box element. Called on window.onload and when the user clicks home nav buttons. */
+        function hideMessageBox() {
+
+            var recordBox = document.getElementById('record-box');
+            var container = document.getElementById('container');
+            var message = document.getElementById('select-grade-message');
+
+            // Hide the record box
+            recordBox.style.display = 'none';
+
+            // If the message doesn't exist, create it
+            if (!message) {
+                message = document.createElement('p');
+                message.classList.add('record');
+                message.id = 'select-grade-message';
+                message.textContent = 'Select your grade!';
+                container.appendChild(message);
+            }
+        }
+
+
+        /* Retrieves the running record and worldRecords from firestore for grade5 and grade6 */
+        function collectRecords(grade) {
+            var buttons = document.querySelectorAll('.nav-button');
+            buttons.forEach(button => button.classList.remove('selected'));
+            var buttonId = grade + '-button';
+            if (grade == 'home') buttonId = 'home-button';
+            var selectedButton = document.getElementById(buttonId);
+            if (selectedButton) selectedButton.classList.add('selected');
+
+            if (grade == "home")
+            {
+                hideMessageBox()
+                gradeSelected = grade;
+                runningRecord = 0;
+                worldRecord = 0;
+                updateRecords();
+
+            } 
+            else 
+            {
+                showMessageBox()
+
+                //Update the runningRecord and worldRecord in firestore:
+                var db = firebase.firestore();
+                db.collection("warmup").doc(grade).get().then((doc) => {
+                    if (doc.exists) {
+                        runningRecord = doc.data().runningRecord;
+                        worldRecord = doc.data().worldRecord;
+                        gradeSelected = grade;
+                        updateRecords();
+                    } else {
+                        console.log("No such document!");
+                    }
+                }).catch((error) => {
+                    console.log("Error getting document:", error);
+                });
+            }
+            var submitButton = document.getElementById('record-submit-button');
+            if (grade == 'home') {
+                submitButton.disabled = true;
+            } else {
+                submitButton.disabled = false;
+            }
+        }
+
+        /* ADD SOME COMMENTS FOR UPDATE RECORDS!!! */
+        function updateRecords() {
+            document.getElementById('runningRecord').textContent = runningRecord;
+            document.getElementById('worldRecord').textContent = worldRecord;
+            grade = "home";
+        }
+
+        /* Handles basic animations and sounds. 
+           If the result is good then sounds and images selected at random in the 'sounds/good' and 'img/good' are selected.
+           Otherwise sounds and images in 'img/bad' and 'sound/bad' are selected.
+        */
+        function runAnimations(result) {
+            
+            var images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg', 'image6.jpg', 'image7.jpg', 'image8.jpg', 'image9.jpg', 'image10.jpg'];
+            var randomImage = images[Math.floor(Math.random() * images.length)];
+
+            if (result === "good")
+            {
+                var colorResult = "green"
+                var pathResult = 'sounds/good/2.mp3'
+                var imgPath = 'img/good/' + randomImage;
+            }
+            else if (result === "bad") 
+            {
+                var colorResult = "red"
+                var pathResult = 'sounds/bad/1.mp3'
+                var imgPath = 'img/bad/' + randomImage;
+            }
+            document.getElementById("record-box").style.backgroundColor = colorResult;
+            var audio = new Audio(pathResult);
+            audio.play();
+            setTimeout(function() {
+                    document.getElementById("record-box").style.backgroundColor = "white"; 
+                }, 5000); // change bg back to white after 5 seconds
+
+            var img = document.createElement('img');
+            img.src = imgPath;
+            img.classList.add('img-size');
+            img.style.position = 'absolute';
+            img.style.top = '50%';
+            img.style.left = '50%';
+            img.style.transform = 'translate(-50%, -50%)';
+            img.style.transition = 'all 2s';
+            document.body.appendChild(img);
+
+            setTimeout(function() {
+                img.style.bottom = '50%';
+            }, 0);
+
+            setTimeout(function() {
+                img.style.top = '-100px';
+                img.style.left = '-100%';
+            }, 4000);
+
+            setTimeout(function() {
+                document.body.removeChild(img);
+            }, 5000);
+        }
+
+        /* Function that adds the new grades to firestore. 
+           'Today's result' is always added. World record is updated if it is equal to or greater than the current
+           world record.
+        */
+        function checkRecord() {
+            var result = parseInt(document.getElementById("result").value);
+            // Add today's result to firestore.
+            var db = firebase.firestore();
+            db.collection("warmup").doc(gradeSelected).set({
+                runningRecord: result,
+                worldRecord: worldRecord
+            })
+            .then(() => {
+                console.log("Document successfully written!");
+                if (result < runningRecord) 
+                {
+                    runAnimations("bad");
+                } 
+                else if (result >= runningRecord && result < worldRecord) 
+                {
+                    runAnimations("good");
+                }
+                else if (result >= worldRecord)
+                {
+                    document.body.style.animation = 'flash 1s infinite';
+                    var audio = new Audio('sounds/record/3.mp3');
+                    audio.play();
+                    var fireworks = document.getElementById('fireworks');
+                    fireworks.style.display = 'block';
+                    const randomNumber = Math.floor(Math.random() * 11) + 1;
+                    document.getElementById('fireworks').style.backgroundImage =
+                        `url('img/celebrate-${randomNumber}.gif')`;
+                    document.body.innerHTML += '<p class="new-record">NEW WORLD RECORD!!!</p>';
+                    var newRecord = document.getElementById('new-record');
+                    setTimeout(function() {
+                        fireworks.style.display = 'none';
+                        newRecord.style.dislay = 'none';
+                    }, 20000); // hide after 21 seconds
+                    // Update world record in firestore
+                    db.collection("warmup").doc(gradeSelected).set({
+                        runningRecord: result,
+                        worldRecord: result
+                    })
+                    .then(() => {
+                        console.log("World Record successfully written!");
+                    })
+                    .catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+                }
+                setTimeout(function() {
+                    collectRecords(gradeSelected);
+                }, 5000);
+            })
+            .catch((error) => {
+                console.error("Error writing document: ", error);
+            });
+        }
+
+        /* Once the Window is loaded, call updateRecords so that runningRecord and worldRecord 
+        variables are set. */
+        window.onload = function() {
+            hideMessageBox();
+            updateRecords();
+        };
+    </script>
+</body>
+</html>
