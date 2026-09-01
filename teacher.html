@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Reflection Logs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <div id="admin-login" class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-8 rounded-xl shadow-lg max-w-sm w-full text-center border-t-4 border-blue-600">
+            <h1 class="text-2xl font-bold mb-6 text-gray-800">Teacher Login</h1>
+            <input type="password" id="admin-pass" placeholder="Password" 
+                   class="w-full border p-3 rounded mb-4 focus:ring-2 focus:ring-blue-500 outline-none">
+            <button onclick="checkAdmin()" 
+                    class="w-full bg-blue-600 text-white font-bold py-3 rounded hover:bg-blue-700 transition">
+                Enter Dashboard
+            </button>
+        </div>
+    </div>
+
+    <div id="admin-dashboard" class="hidden p-4 md:p-8 max-w-5xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+            <div>
+                <h1 class="text-3xl font-black text-gray-900 tracking-tight">Review Logs</h1>
+                <p class="text-gray-500 text-sm">Select a student to see their history</p>
+            </div>
+            <button onclick="exportToCSV()" 
+                    class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-bold shadow flex items-center gap-2 transition">
+                <span>📥</span> Export to CSV
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+            <div>
+                <label class="block text-xs font-black uppercase text-gray-400 mb-2">Student Name</label>
+                <select id="student-dropdown" onchange="fetchStudentLogs()" 
+                        class="w-full p-3 border rounded-lg bg-gray-50 font-semibold focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer">
+                    <option value="">-- Loading Students... --</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-black uppercase text-gray-400 mb-2">Date Range (Optional)</label>
+                <div class="flex gap-2">
+                    <input type="date" id="start-date" onchange="renderLogs()" class="w-full p-2 border rounded-lg bg-gray-50">
+                    <input type="date" id="end-date" onchange="renderLogs()" class="w-full p-2 border rounded-lg bg-gray-50">
+                </div>
+            </div>
+        </div>
+
+        <div id="log-feed" class="space-y-6">
+            <div class="text-center py-20 text-gray-400 italic">
+                No student selected. Use the dropdown above.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- FIREBASE CONFIG (REPLACE WITH YOURS) ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyB9CvzJaTN9fY1MswFfSdZHY5iWx7qRR_g",
+            authDomain: "reflection-log-3d328.firebaseapp.com",
+            projectId: "reflection-log-3d328",
+            storageBucket: "reflection-log-3d328.firebasestorage.app",
+            messagingSenderId: "865378468498",
+            appId: "1:865378468498:web:98c9ff8b919dc3b1575c4b",
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        let currentLogs = []; // Temporary storage for current student logs
+
+        // 1. ADMIN AUTH
+        function checkAdmin() {
+            const pass = document.getElementById('admin-pass').value;
+            if (pass === "Admin123") { // CHANGE YOUR PASSWORD HERE
+                document.getElementById('admin-login').classList.add('hidden');
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                loadStudentList();
+            } else {
+                alert("Incorrect Password");
+            }
+        }
+
+        // 2. FETCH LIST OF STUDENTS FOR DROPDOWN
+        async function loadStudentList() {
+            const dropdown = document.getElementById('student-dropdown');
+            try {
+                console.log("Fetching student list...");
+                const snapshot = await db.collection('users').get();
+                
+                // Clear the dropdown and show a default prompt
+                dropdown.innerHTML = '<option value="">-- Choose a Student --</option>';
+                
+                if (snapshot.empty) {
+                    console.warn("No documents found in 'users' collection.");
+                    dropdown.innerHTML = '<option>No students found</option>';
+                    return;
+                }
+        
+                snapshot.forEach(doc => {
+                    const student = doc.data();
+        
+                    // FIX: Only add to the list if the document has a 'name' field
+                    // This filters out any 'ghost' documents or sub-collections
+                    if (student && student.name) {
+                        const option = document.createElement('option');
+                        option.value = doc.id; // The Document ID (e.g., 001)
+                        option.textContent = `${student.name} (ID: ${doc.id})`;
+                        dropdown.appendChild(option);
+                    }
+                });
+        
+                console.log("Dropdown populated successfully.");
+            } catch (error) {
+                console.error("Error loading students:", error);
+                dropdown.innerHTML = '<option>Error: Check Permissions</option>';
+            }
+        }
+
+        // 3. FETCH LOGS FOR SELECTED STUDENT
+        async function fetchStudentLogs() {
+            const studentId = document.getElementById('student-dropdown').value;
+            const feed = document.getElementById('log-feed');
+            
+            if (!studentId) return;
+        
+            feed.innerHTML = `<div class="text-center py-10 text-blue-600 font-bold">Searching all logs for Student ${studentId}...</div>`;
+        
+            try {
+                // FLAT QUERY: Look in 'logs', find docs where studentId matches
+                const snapshot = await db.collection('logs')
+                    .where('studentId', '==', studentId)
+                    .orderBy('date', 'desc')
+                    .get();
+        
+                if (snapshot.empty) {
+                    console.log("No documents found with studentId:", studentId);
+                    feed.innerHTML = `
+                        <div class="text-center py-10 bg-gray-50 border rounded-lg italic text-gray-500">
+                            No reflections recorded for this student ID yet.
+                        </div>`;
+                    return;
+                }
+        
+                currentLogs = snapshot.docs.map(doc => {
+                    const data = doc.data();
+                    console.log("Found Log Data:", data); 
+                    return data;
+                });
+                
+                renderLogs();
+                
+            } catch (error) {
+                console.error("Fetch Error:", error);
+                feed.innerHTML = `
+                    <div class="p-6 bg-red-50 text-red-700 rounded-lg border border-red-200">
+                        <p class="font-bold">Query Failed</p>
+                        <p class="text-xs mt-2">${error.message}</p>
+                        <p class="text-xs mt-4 bg-white p-2 rounded italic">
+                            Note: If you see a link in the console (F12) about a "Composite Index," click it to enable this search!
+                        </p>
+                    </div>`;
+            }
+        }
+
+        // 4. RENDER LOGS WITH DATE DIVIDERS
+        function renderLogs() {
+            const feed = document.getElementById('log-feed');
+            const start = document.getElementById('start-date').value;
+            const end = document.getElementById('end-date').value;
+            
+            feed.innerHTML = ""; 
+            let lastDateLabel = null;
+        
+            // 1. Filter Logic
+            const filtered = currentLogs.filter(log => {
+                let logDateString = "";
+                if (log.date && typeof log.date.toDate === 'function') {
+                    logDateString = log.date.toDate().toISOString().split('T')[0];
+                } else {
+                    logDateString = log.date; 
+                }
+                const matchStart = start ? logDateString >= start : true;
+                const matchEnd = end ? logDateString <= end : true;
+                return matchStart && matchEnd;
+            });
+        
+            if (filtered.length === 0) {
+                feed.innerHTML = "<div class='text-center py-10 text-gray-400 italic'>No reflections found for this period.</div>";
+                return;
+            }
+        
+            // 2. Loop and Render
+            filtered.forEach(log => {
+                let dateLabel = "Unknown Date";
+                let timeLabel = "";
+        
+                if (log.date && typeof log.date.toDate === 'function') {
+                    const d = log.date.toDate();
+                    dateLabel = d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+                    timeLabel = d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+                }
+        
+                // DRAW DIVIDER
+                if (dateLabel !== lastDateLabel) {
+                    feed.innerHTML += `
+                        <div class="flex items-center mt-10 mb-6">
+                            <div class="flex-grow border-t-2 border-gray-300"></div>
+                            <span class="mx-4 text-gray-500 font-bold text-xs uppercase tracking-widest">${dateLabel}</span>
+                            <div class="flex-grow border-t-2 border-gray-300"></div>
+                        </div>`;
+                    lastDateLabel = dateLabel;
+                }
+        
+                // DRAW THE MULTI-SECTION CARD
+                // We use log.logic, log.fix, log.trap, and log.difficulty here:
+                feed.innerHTML += `
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 mb-6 overflow-hidden">
+                        <div class="bg-gray-50 px-4 py-2 border-b flex justify-between items-center">
+                            <span class="text-[10px] font-black text-gray-400 uppercase">Logged at ${timeLabel}</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${getDifficultyColor(log.difficulty)}">
+                                ${log.difficulty || 'N/A'}
+                            </span>
+                        </div>
+                        
+                        <div class="p-5 space-y-4">
+                            <div>
+                                <label class="text-[10px] font-bold text-blue-600 uppercase">The Logic</label>
+                                <p class="text-gray-800 mt-1">${log.logic || 'No logic entered.'}</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                                <div class="bg-green-50 p-3 rounded-lg border border-green-100">
+                                    <label class="text-[10px] font-bold text-green-700 uppercase">The Fix</label>
+                                    <p class="text-gray-700 text-sm mt-1 whitespace-pre-line">${log.fix || 'N/A'}</p>
+                                </div>
+                                <div class="bg-red-50 p-3 rounded-lg border border-red-100">
+                                    <label class="text-[10px] font-bold text-red-700 uppercase">The Trap</label>
+                                    <p class="text-gray-700 text-sm mt-1 whitespace-pre-line">${log.trap || 'N/A'}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+        
+        // Helper function for the Difficulty Badge colors
+        function getDifficultyColor(level) {
+            switch(level?.toUpperCase()) {
+                case 'EASY': return 'bg-green-100 text-green-700';
+                case 'MODERATE': return 'bg-yellow-100 text-yellow-700';
+                case 'HARD': return 'bg-red-100 text-red-700';
+                default: return 'bg-gray-100 text-gray-600';
+            }
+        }
+
+        // 5. EXPORT CURRENT VIEW TO CSV
+        function exportToCSV() {
+            const studentId = document.getElementById('student-dropdown').value;
+            if (!studentId || currentLogs.length === 0) {
+                alert("Please select a student with logs first.");
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,Date,Student ID,Reflection\n";
+
+            currentLogs.forEach(log => {
+                // Clean text of quotes and newlines for CSV safety
+                const cleanText = log.text.replace(/"/g, '""').replace(/\n/g, ' ');
+                csvContent += `"${log.date}","${log.studentId}","${cleanText}"\n`;
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `Logs_${studentId}_${new Date().toLocaleDateString()}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
